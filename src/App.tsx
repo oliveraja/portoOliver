@@ -1,14 +1,17 @@
-//import { useState } from 'react'
-import './App.css'
-import Home from './pages/Home'
+import './App.css';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
     <>
-    <Home></Home>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

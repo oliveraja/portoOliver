@@ -1,11 +1,16 @@
-import Navbar from '../components/Navbar';
+import AboutMe from '../components/AboutMe';
+import LandingPage from '../components/LandingPage';
 
 const Home = () => {
   return (
-    <div>
-      <Navbar />
-      <h1>Welcome to the Home Page</h1>
+    <>
+    <div className="landingPage">
+      <LandingPage />
     </div>
+    <div className="aboutMe">
+      <AboutMe />
+    </div>
+    </>
   );
 };
 
