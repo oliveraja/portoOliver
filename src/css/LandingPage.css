@@ -1,0 +1,21 @@
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 10px;
+  }
+  
+  .oliver-text {
+    color: transparent;
+    display: inline-flex;
+  }
+  
+  .oliver-text span {
+    font-size: 300px;
+    -webkit-text-stroke: 2px rgba(85, 85, 85, 0.5);
+    color: transparent;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+  }  

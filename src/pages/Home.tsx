@@ -1,5 +1,6 @@
 import AboutMe from '../components/AboutMe';
 import LandingPage from '../components/LandingPage';
+import Experience from '../components/Experience'
 
 const Home = () => {
   return (
@@ -9,6 +10,9 @@ const Home = () => {
     </div>
     <div className="aboutMe">
       <AboutMe />
+    </div>
+    <div className="experience">
+      <Experience />
     </div>
     </>
   );
