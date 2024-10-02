@@ -1,6 +1,7 @@
 import AboutMe from '../components/AboutMe';
 import LandingPage from '../components/LandingPage';
 import Experience from '../components/Experience'
+import RecentProject from '../components/RecentProject';
 
 const Home = () => {
   return (
@@ -13,6 +14,9 @@ const Home = () => {
     </div>
     <div className="experience">
       <Experience />
+    </div>
+    <div className="recentProject">
+      <RecentProject />
     </div>
     </>
   );
