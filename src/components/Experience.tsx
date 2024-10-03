@@ -29,43 +29,66 @@ const Experience = () => {
   );
 
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const tweenRef = useRef<gsap.core.Tween | null>(null);
+  const animationRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
-    const boxWidth = 450;
-    const gap = 20;
+    const boxWidth = 450; // Width of each box
+    const gap = 20; // Gap between boxes
     const totalWidth = (boxWidth + gap) * experiences.length;
 
     if (container) {
-      // GSAP animation running text from left to right continuously
-      tweenRef.current = gsap.to(container, {
-        x: `-${totalWidth}px`, // Move to the left by totalWidth
+      // Clear the container
+      container.innerHTML = "";
+      
+      // Create double the amount of experiences for seamless scrolling
+      const doubledExperiences = [...experiences, ...experiences];
+
+      doubledExperiences.forEach((experience) => {
+        const experienceBox = document.createElement("div");
+        experienceBox.className =
+          "experienceBox w-[450px] h-[160px] p-8 bg-gray-800 rounded-[15px] shadow-lg flex items-center justify-center text-left mr-4";
+        experienceBox.innerHTML = `
+          <blockquote class="relative w-[384px] h-[114px] px-2 bg-gray-800 rounded-md">
+            <span class="relative z-20 text-xl font-medium leading-[1.6] text-white">${experience.title}</span>
+            <div class="relative z-20 mt-5 flex flex-row items-center">
+              <span class="flex flex-col gap-1">
+                <span class="text-base font-normal leading-[1.6] text-gray-400">${experience.date}</span>
+                <span class="text-sm font-normal leading-[1.6] text-gray-400">${experience.desc}</span>
+              </span>
+            </div>
+          </blockquote>`;
+        container.appendChild(experienceBox);
+      });
+
+      // Set up GSAP animation for continuous scrolling
+      animationRef.current = gsap.to(container, {
+        x: `-=${totalWidth}`,
         duration: 50,
         ease: "none",
-        repeat: -1, // Infinite loop
+        repeat: -1,
         modifiers: {
-          x: gsap.utils.unitize((value) => parseFloat(value) % totalWidth), // Ensure looping
+          x: (x) => `${parseFloat(x) % totalWidth}px`
         },
       });
     }
 
     return () => {
-      if (tweenRef.current) {
-        tweenRef.current.kill();
+      if (animationRef.current) {
+        animationRef.current.kill();
       }
     };
   }, [experiences]);
 
   const handleMouseEnter = () => {
-    if (tweenRef.current) {
-      tweenRef.current.pause();
+    if (animationRef.current) {
+      animationRef.current.pause();
     }
   };
 
   const handleMouseLeave = () => {
-    if (tweenRef.current) {
-      tweenRef.current.resume();
+    if (animationRef.current) {
+      animationRef.current.resume();
     }
   };
 
@@ -83,35 +106,7 @@ const Experience = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {experiences.concat(experiences).map((experience, index) => (
-            <div
-              key={index}
-              className="experienceBox w-[450px] h-[160px] p-8 bg-gray-800 rounded-[15px] shadow-lg flex items-center justify-center text-left mr-4"
-            >
-              <blockquote className="relative w-[384px] h-[114px] px-2 bg-gray-800 rounded-md">
-                <div
-                  aria-hidden="true"
-                  className="user-select-none pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-                  style={{ zIndex: -1 }}
-                ></div>
-
-                <span className="relative z-20 text-xl font-medium leading-[1.6] text-white">
-                  {experience.title}
-                </span>
-
-                <div className="relative z-20 mt-5 flex flex-row items-center">
-                  <span className="flex flex-col gap-1">
-                    <span className="text-base font-normal leading-[1.6] text-gray-400">
-                      {experience.date}
-                    </span>
-                    <span className="text-sm font-normal leading-[1.6] text-gray-400">
-                      {experience.desc}
-                    </span>
-                  </span>
-                </div>
-              </blockquote>
-            </div>
-          ))}
+          {/* Elements will be added dynamically */}
         </div>
       </div>
     </div>

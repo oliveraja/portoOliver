@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Work Sans', 'system-ui', 'sans-serif'],
+      },
       keyframes: {
         typing: {
           "0%": {
