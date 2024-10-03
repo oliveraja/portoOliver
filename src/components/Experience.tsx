@@ -7,7 +7,7 @@ const Experience = () => {
       {
         title: "Intern IT Developer at CIMB Niaga",
         date: "February 2024 - Now",
-        desc: "Contribute to the process of developing in-house applications for internal use.",
+        desc: "Contribute developing in-house applications.",
       },
       {
         title: "Education Counselor",
@@ -22,7 +22,7 @@ const Experience = () => {
       {
         title: "Freshmen Leader",
         date: "July 2023 - August 2023 • 1 months",
-        desc: "Helps freshmen to adapt to the lecture environment and also helps to introduce the campus environment.",
+        desc: "Helps freshmen to adapt the campus environment.",
       },
     ],
     []
