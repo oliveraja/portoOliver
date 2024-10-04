@@ -75,7 +75,7 @@ const LandingPage = () => {
       </h1>
       <div className="flex items-center justify-center">
         <div className="w-max">
-          <h1 className="overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-4xl text-white font-bold">
+          <h1 className="overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-1 text-4xl text-white font-bold">
             {currentWord}
           </h1>
         </div>
