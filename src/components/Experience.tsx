@@ -66,7 +66,7 @@ const Experience = () => {
         x: `-=${totalWidth}`,
         duration: 50,
         ease: "none",
-        repeat: -1,
+        repeat: Infinity,
         modifiers: {
           x: (x) => `${parseFloat(x) % totalWidth}px`
         },

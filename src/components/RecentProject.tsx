@@ -16,13 +16,13 @@ const RecentProject = () => {
 
       // GSAP untuk running text
       gsap.to(container, {
-        x: `-${titleWidth / 2}px`,
+        x: `-=${titleWidth}`,
         duration: 50,
         ease: "none",
-        repeat: -1, 
+        repeat: Infinity, 
         modifiers: {
           x: (x) => {
-            return `${parseFloat(x) % (titleWidth / 2)}px`;
+            return `${parseFloat(x) % titleWidth}px`;
           },
         },
       });
