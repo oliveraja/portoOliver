@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import '../css/RecentProject.css';
 
 const RecentProject = () => {
   const titleRef = useRef<HTMLDivElement | null>(null);
@@ -147,7 +148,7 @@ const RecentProject = () => {
       </div>
 
       {/* listProject 3 */}
-      <div className="listProject mt-10">
+      <div className="listProject mt-10 mb-10">
         <div className="max-w-[1000px] h-[450px] mx-auto flex border border-gray-300 rounded-lg">
           <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
             <div className="flex space-x-2 mb-2">
