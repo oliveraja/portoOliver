@@ -24,7 +24,8 @@ const AboutMe = () => {
   }, []);
 
   return (
-  <div className="aboutMe items-start justify-end mx-auto px-6">
+  <section id="AboutMe" className="AboutMe px-10">
+    <div className="aboutMe items-start justify-end mx-auto">
     <div className="titleAboutMe flex items-center justify-end">
       <div className="border-t border-gray-300 flex-grow mr-4" />
       <h1 className="font-bold text-[70px] text-right">About me</h1>
@@ -77,6 +78,7 @@ const AboutMe = () => {
       />
     </div>
   </div>
+  </section>
   );
 };
 

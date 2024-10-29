@@ -93,23 +93,25 @@ const Experience = () => {
   };
 
   return (
-    <div className="aboutMe items-start justify-start mx-auto px-6 pt-10">
-      <div className="titleAboutMe flex">
-        <h1 className="font-bold text-[70px]">Experience</h1>
-      </div>
+    <section id="Experience" className="Experience px-10">
+      <div className="aboutMe items-start justify-start mx-auto pt-10">
+        <div className="titleAboutMe flex">
+          <h1 className="font-bold text-[70px]">Experience</h1>
+        </div>
 
-      <div className="overflow-hidden mt-8">
-        <div
-          className="flex"
-          ref={containerRef}
-          style={{ width: "max-content" }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          {/* Elements will be added dynamically */}
+        <div className="overflow-hidden mt-8">
+          <div
+            className="flex"
+            ref={containerRef}
+            style={{ width: "max-content" }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
   );
 };
 
