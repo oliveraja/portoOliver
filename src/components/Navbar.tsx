@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const Navbar = () => {
+interface NavbarProps {
+  scrollToSection: (section: string) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -10,7 +14,10 @@ const Navbar = () => {
   return (
     <nav className="w-full px-10 sticky top-0 z-10 bg-[#191616]">
       <div className="flex flex-wrap items-center justify-between mx-auto py-4 w-full">
-        <a href="#LandingPage" className="flex items-center">
+        <a
+          onClick={() => scrollToSection("LandingPage")}
+          className="flex items-center cursor-pointer"
+        >
           <h1 className="text-2xl font-bold">verver</h1>
         </a>
         <button
@@ -22,47 +29,94 @@ const Navbar = () => {
         >
           <i className="fa-solid fa-bars fa-xl" style={{ color: "#ffffff" }}></i>
         </button>
-        <div
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } w-full mt-4`}
-          id="navbar-hamburger"
+      </div>
+
+      <div
+        className={`fixed top-0 right-0 h-full w-[500px] bg-gray-50 dark:bg-gray-800 p-8 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Close Icon */}
+        <button
+          onClick={() => setIsMenuOpen(false)}
+          className="absolute top-5 right-10 bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-300 focus:outline-none"
         >
-          <ul className="flex flex-col font-medium rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+          <i className="fa-solid fa-xmark fa-lg"></i>
+        </button>
+
+        {/* Sidebar Content */}
+        <div className="mt-14 text-left">
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-2">Jalan jalan di website aing</h3>
+          <div className="h-[2px] bg-gray-500 mb-8"></div>
+
+          <ul className="space-y-6">
             <li>
-              <a
-                href="#AboutMe"
-                className="block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600"
-                aria-current="page"
+              <h1
+                onClick={() => {
+                  scrollToSection("LandingPage");
+                  setIsMenuOpen(false);
+                }}
+                className="text-[55px] text-gray-900 dark:text-gray-200 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400"
               >
-                About Me
-              </a>
+                Home
+              </h1>
             </li>
             <li>
-              <a
-                href="#Experience"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              <h1
+                onClick={() => {
+                  scrollToSection("AboutMe");
+                  setIsMenuOpen(false);
+                }}
+                className="text-[55px] text-gray-900 dark:text-gray-200 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400"
+              >
+                About
+              </h1>
+            </li>
+            <li>
+              <h1
+                onClick={() => {
+                  scrollToSection("Experience");
+                  setIsMenuOpen(false);
+                }}
+                className="text-[55px] text-gray-900 dark:text-gray-200 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400"
               >
                 Experience
-              </a>
+              </h1>
             </li>
             <li>
-              <a
-                href="#RecentProject"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              <h1
+                onClick={() => {
+                  scrollToSection("RecentProject");
+                  setIsMenuOpen(false);
+                }}
+                className="text-[55px] text-gray-900 dark:text-gray-200 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400"
               >
-                Recent Project
-              </a>
+                Project
+              </h1>
             </li>
             <li>
-              <a
-                href="#ContactMe"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              <h1
+                onClick={() => {
+                  scrollToSection("ContactMe");
+                  setIsMenuOpen(false);
+                }}
+                className="text-[55px] text-gray-900 dark:text-gray-200 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400"
               >
-                Contact Me
-              </a>
+                Contact
+              </h1>
             </li>
           </ul>
+          <div className="flex gap-4 mt-10">
+            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer">
+              <i className="fa-solid fa-sun"></i>
+            </div>
+            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer">
+              <i className="fa-solid fa-moon"></i>
+            </div>
+            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer">
+              <i className="fa-solid fa-desktop"></i>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

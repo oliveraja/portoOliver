@@ -1,45 +1,45 @@
-.list {
-    width: 200px;
-    height: 200px;
-    box-shadow: 16px 14px 20px #0000008c;
+.project {
+    max-width: 1000px;
+    height: 450px;
+    margin: 0 auto;
+    display: flex;
+    border: 0.5px solid #463f3f;
     border-radius: 10px;
+    background: #191616;
     position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.list::before{
-    content: "";
-    background-image: conic-gradient(
-        #ff0052 20deg,
-        transparent 120deg
-    );
-    width: 150%;
-    height: 150%;
-    position: absolute;
-    animation: rotate 10s linear infinite;
-}
-.list::after{
-    content: "";
-    width: 190px;
-    height: 190px;
-    background: #101010;
-    position: absolute;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ff0052;
-    font-size: larger;
-    box-shadow: inset 20px 20px 20px #0000008c;
 }
 
-@keyframes rotate {
-    0%{
-        transform: rotate(0deg);
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.project::after, .project::before {
+    --angle: 245.5deg;
+    content: '';
+    position: absolute;
+    height: calc(100% + 5px);
+    width: calc(100% + 5px);
+    background-image: conic-gradient(from var(--angle), transparent 90%, red);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 10px;
+    animation: 10s spin linear infinite;
+}
+
+.project::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
     }
-    100%{
-        transform: rotate(-360deg);
+    to{
+        --angle: 360deg;
     }
 }

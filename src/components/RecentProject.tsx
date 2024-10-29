@@ -36,9 +36,6 @@ const RecentProject = () => {
 
   return (
     <section id="RecentProject" className="RecentProject">
-      <div className="list">
-        
-      </div>
       <div className="recentProject items-start justify-start mx-auto pt-10">
         <div className="titleRecentProject flex flex-col items-center overflow-hidden">
           <div className="w-full border-t border-gray-300" />
@@ -52,7 +49,7 @@ const RecentProject = () => {
 
         {/* listProject 1 */}
         <div className="listProject mt-20">
-          <div className="max-w-[1000px] h-[450px] mx-auto flex border border-gray-300 rounded-lg">
+          <div className="project">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
               <div className="flex space-x-2 mb-2">
                 <a href="https://github.com/oliveraja/SOP_Management_System" 
@@ -103,7 +100,7 @@ const RecentProject = () => {
 
         {/* listProject 2 */}
         <div className="listProject mt-10">
-          <div className="max-w-[1000px] h-[450px] mx-auto flex border border-gray-300 rounded-lg">
+          <div className="project">
             <div className="flex items-start justify-end flex-1">
                 <img 
                   src={hoveredProject2 ? "/images/detailPinterWeb.svg" : "/images/pinterWeb.jpg"} 
@@ -154,7 +151,7 @@ const RecentProject = () => {
 
         {/* listProject 3 */}
         <div className="listProject mt-10 mb-10">
-          <div className="max-w-[1000px] h-[450px] mx-auto flex border border-gray-300 rounded-lg">
+          <div className="project">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
               <div className="flex space-x-2 mb-2">
                 <a href="https://github.com/orgs/BinaryBuilders-fsw38/repositories" 
