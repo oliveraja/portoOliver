@@ -19,8 +19,8 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <section id='LandingPage' className='LandingPage px-5 h-screen'>
-      <div className="items-center justify-center py-20">
+    <section id='LandingPage' className='LandingPage px-5 min-h-[80vh] flex items-center'>
+      <div className="w-full">
         <h1 ref={oliverRef} className="oliver-text font-bold text-[250px] text-white">
           O L I V E R
         </h1>

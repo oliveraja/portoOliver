@@ -1,6 +1,6 @@
 const ContactMe = () => {
     return (
-      <section id="ContactMe" className="ContactMe bg-white flex h-screen">
+      <section id="ContactMe" className="ContactMe bg-white flex h-screen px-10">
         <div className="w-1/2 flex flex-col justify-center p-10">
           <h1 className="text-4xl font-bold text-black">Haloooha</h1>
           <h3 className="mt-4 text-lg text-gray-600">

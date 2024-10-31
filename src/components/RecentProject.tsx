@@ -35,7 +35,7 @@ const RecentProject = () => {
   const [hoveredProject3, setHoveredProject3] = useState(false);
 
   return (
-    <section id="RecentProject" className="RecentProject">
+    <section id="RecentProject" className="RecentProject pt-10">
       <div className="recentProject items-start justify-start mx-auto pt-10">
         <div className="titleRecentProject flex flex-col items-center overflow-hidden">
           <div className="w-full border-t border-gray-300" />

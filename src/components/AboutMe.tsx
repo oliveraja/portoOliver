@@ -6,39 +6,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutMe = () => {
   useEffect(() => {
-    // Animasi teks
+    // desc About Me animation
     gsap.fromTo(
       ".descAboutMe span",
-      { color: "rgba(255, 255, 255, 0.5)" },
+      { color: "rgba(255, 255, 255, 0.1)" },
       {
         color: "rgba(255, 255, 255, 1)",
-        scrollTrigger: {
-          trigger: ".descAboutMe",
-          start: "top 80%",
-          toggleActions: "play none none reset",
-          scrub: 1,
-        },
+        duration: 0.5,
         stagger: 0.1,
-        duration: 1,
       }
     );
 
-    // Animasi gambar dari kanan ke kiri
-    gsap.from(".aboutMeImage", {
-      x: 200,
-      opacity: 0,
-      duration: 2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".aboutMeImage",
-        start: "top 80%",
-        toggleActions: "play none none reset",
+    // photo animation
+    gsap.fromTo(
+      ".aboutMeImage",
+      {
+        x: 200,
+        opacity: 0,
+        scale: 0.8,
       },
-    });
+      {
+        x: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".aboutMeImage",
+          start: "top 80%",
+          end: "top 30%",
+          toggleActions: "play none none reset",
+          markers: false,
+        },
+      }
+    );
   }, []);
 
   return (
-    <section id="AboutMe" className="AboutMe px-10">
+    <section id="AboutMe" className="AboutMe px-10 pt-14">
       <div className="aboutMe items-start justify-end mx-auto">
         <div className="titleAboutMe flex items-center justify-end">
           <div className="border-t border-gray-300 flex-grow mr-4" />
@@ -90,7 +95,7 @@ const AboutMe = () => {
           <img
             src="/images/me.png"
             alt="About Me"
-            className="aboutMeImage w-auto h-96 mr-7 transition-transform duration-300 transform hover:scale-300"
+            className="aboutMeImage w-auto h-96 mr-7 transition-transform duration-300 transform hover:scale-110"
           />
         </div>
       </div>
