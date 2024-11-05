@@ -18,7 +18,7 @@ const RecentProject = () => {
       // GSAP untuk running text
       gsap.to(container, {
         x: `-=${titleWidth}`,
-        duration: 50,
+        duration: 200,
         ease: "none",
         repeat: Infinity, 
         modifiers: {
@@ -41,7 +41,11 @@ const RecentProject = () => {
           <div className="w-full border-t border-gray-300" />
           <div ref={titleRef} className="relative whitespace-nowrap" style={{ display: "inline-block" }}>
             <h1 className="font-bold text-[70px] inline-block">
-              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━
+              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
+              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
+              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
+              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
+              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━
             </h1>
           </div>
           <div className="w-full border-b border-gray-300 mt-2" />
@@ -55,7 +59,7 @@ const RecentProject = () => {
                 <a href="https://github.com/oliveraja/SOP_Management_System" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="cursor-pointer">
+                  className="cursor-pointer transform transition-transform duration-200 hover:scale-110">
                   <i className="fa-brands fa-github fa-2xl" style={{ color: "#ffffff" }}></i>
                 </a>
               </div>
@@ -115,7 +119,7 @@ const RecentProject = () => {
                 <a href="https://github.com/orgs/BinaryBuilders-fsw38/repositories" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="cursor-pointer">
+                  className="cursor-pointer transform transition-transform duration-200 hover:scale-110">
                   <i className="fa-brands fa-github fa-2xl" style={{ color: "#ffffff" }}></i>
                 </a>
               </div>
@@ -157,13 +161,13 @@ const RecentProject = () => {
                 <a href="https://github.com/orgs/BinaryBuilders-fsw38/repositories" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="cursor-pointer">
+                  className="cursor-pointer transform transition-transform duration-200 hover:scale-110">
                   <i className="fa-brands fa-github fa-2xl" style={{ color: "#ffffff" }}></i>
                 </a>
                 <a href="https://medium.com/@oliversebastian321/portofolio-website-skincommerce-13d808884cbb" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="cursor-pointer">
+                  className="cursor-pointer transform transition-transform duration-200 hover:scale-110">
                   <i className="fa-brands fa-medium fa-2xl" style={{ color: "#ffffff" }}></i>
                 </a>
               </div>

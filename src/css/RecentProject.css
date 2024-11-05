@@ -21,7 +21,7 @@
     position: absolute;
     height: calc(100% + 5px);
     width: calc(100% + 5px);
-    background-image: conic-gradient(from var(--angle), transparent 90%, red);
+    background-image: conic-gradient(from var(--angle), transparent 90%, rgb(17, 0, 255), rgb(192, 28, 96));
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

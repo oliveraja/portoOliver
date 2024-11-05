@@ -1,0 +1,10 @@
+#Circle-Txt {
+    font-size: 40px;
+    animation: rounded14s linear infinite;
+}
+
+@keyframes rounded {
+    100%{
+        transform: rotate(360deg);
+    }
+}
