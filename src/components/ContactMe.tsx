@@ -2,8 +2,8 @@ const ContactMe = () => {
     return (
       <section id="ContactMe" className="ContactMe bg-white flex h-screen px-10">
         <div className="w-1/2 flex flex-col justify-center p-10">
-          <h1 className="text-4xl font-bold text-black">Haloooha</h1>
-          <h3 className="mt-4 text-lg text-gray-600">
+          <h1 className="text-[50px] font-bold text-black">Haloooha</h1>
+          <h3 className="mt-4 text-[25px] text-gray-600">
             Because you know what happens when you say <span className="font-bold">"hello"</span> or "good morning?" You make a connection. And isn't that what being human is all about?
           </h3>
           <div className="flex space-x-4 mt-10 justify-center">
@@ -22,8 +22,7 @@ const ContactMe = () => {
           </div>
         </div>
 
-        <div className="w-1/2 flex justify-center items-center bg-gray-100">
-          {/* Placeholder untuk konten 3D */}
+        <div className="w-1/2 md:w-1/2 hidden md:flex justify-center items-center bg-gray-100">
           <div className="w-3/4 h-3/4 bg-gray-200 flex items-center justify-center">
             <p className="text-gray-500">3D Content Here</p>
           </div>

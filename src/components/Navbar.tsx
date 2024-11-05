@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface NavbarProps {
   scrollToSection: (section: string) => void;
@@ -6,10 +6,30 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as Element | null;
+    if (
+      sidebarRef.current &&
+      target &&
+      !sidebarRef.current.contains(target) &&
+      !target.closest(".menu-button")
+    ) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="w-full px-10 sticky top-0 z-10 bg-[#191616]">
@@ -32,11 +52,12 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
       </div>
 
       <div
+        ref={sidebarRef}
         className={`fixed top-0 right-0 h-full w-[500px] bg-gray-50 dark:bg-gray-800 p-8 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Close Icon */}
+        {/* icon close */}
         <button
           onClick={() => setIsMenuOpen(false)}
           className="absolute top-5 right-10 bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-300 focus:outline-none"
@@ -44,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           <i className="fa-solid fa-xmark fa-lg"></i>
         </button>
 
-        {/* Sidebar Content */}
+        {/* isi sidebar */}
         <div className="mt-14 text-left">
           <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-2">Jalan jalan di website aing</h3>
           <div className="h-[2px] bg-gray-500 mb-8"></div>
@@ -106,14 +127,14 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
               </h1>
             </li>
           </ul>
-          <div className="flex gap-4 mt-10">
-            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer">
+          <div className="mode flex gap-4 mt-10">
+            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110">
               <i className="fa-solid fa-sun"></i>
             </div>
-            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer">
+            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110">
               <i className="fa-solid fa-moon"></i>
             </div>
-            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer">
+            <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110">
               <i className="fa-solid fa-desktop"></i>
             </div>
           </div>

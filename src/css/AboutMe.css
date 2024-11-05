@@ -1,10 +1,57 @@
-#Circle-Txt {
-    font-size: 40px;
-    animation: rounded14s linear infinite;
+.aboutMeText  {
+    height: 200px;
+    width: 200px;
+    position: relative;
+    animation: effect 8s linear infinite;
 }
 
-@keyframes rounded {
+.aboutMeText  span {
+    position: absolute;
+    transform-origin: 0 100px;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+@keyframes effect {
+    0%{
+        transform: rotate(0deg);
+    }
     100%{
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .titleAboutMe .border-t {
+      display: none;
+    }
+
+    .titleAboutMe h1 {
+      font-size: 40px;
+      text-align: left;
+    }
+
+    .descAboutMe h3 {
+      width: auto;
+      font-size: 16px;
+      text-align: justify;
+      margin-right: 0;
+    }
+  
+    .descAboutMe {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .aboutMeImage {
+      margin-top: 20px;
+      margin-right: 0;
+      width: auto;
+      height: auto;
+    }
+    
+    .AboutMe {
+      padding-left: 2px;
+      padding-right: 2px;
     }
 }

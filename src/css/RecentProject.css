@@ -43,3 +43,21 @@
         --angle: 360deg;
     }
 }
+
+@media (max-width: 768px) {
+    .recentProject {
+        padding: 5px;
+    }
+
+    .project {
+      height: 650px;
+    }
+  
+    .project-image {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      border-radius: 10px; 
+      transition: all 0.3s ease;
+    }
+}

@@ -53,7 +53,7 @@ const RecentProject = () => {
 
         {/* listProject 1 */}
         <div className="listProject mt-20">
-          <div className="project">
+          <div className="project max-w-[1100px] h-[500px]">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
               <div className="flex space-x-2 mb-2">
                 <a href="https://github.com/oliveraja/SOP_Management_System" 
@@ -64,12 +64,7 @@ const RecentProject = () => {
                 </a>
               </div>
               <h3 className="projectName text-[40px] font-semibold mt-5">
-                <a 
-                  href="#" 
-                  className="hover:scale-105 transition-transform duration-200"
-                >
-                  Document Management System
-                </a>
+                Document Management System
               </h3>
               <p className="projectDesc mt-2 text-gray-400">A Simple website to manage document</p>
               <div className="projectTech flex mt-5">
@@ -94,7 +89,7 @@ const RecentProject = () => {
               <img 
                 src={hoveredProject1 ? "/images/documentManager.svg" : "/images/dashboardAdminDM.png"} 
                 alt="Project" 
-                className="w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
+                className="project-image w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
                 onMouseEnter={() => setHoveredProject1(true)} 
                 onMouseLeave={() => setHoveredProject1(false)} 
               />
@@ -104,17 +99,8 @@ const RecentProject = () => {
 
         {/* listProject 2 */}
         <div className="listProject mt-10">
-          <div className="project">
-            <div className="flex items-start justify-end flex-1">
-                <img 
-                  src={hoveredProject2 ? "/images/detailPinterWeb.svg" : "/images/pinterWeb.jpg"} 
-                  alt="Project" 
-                  className="w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
-                  onMouseEnter={() => setHoveredProject2(true)} 
-                  onMouseLeave={() => setHoveredProject2(false)} 
-                />
-            </div>
-            <div className="flex flex-col justify-end p-4 text-left mt-5 w-1/3">
+          <div className="project max-w-[1100px] h-[500px]">
+          <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
               <div className="flex space-x-2 mb-2">
                 <a href="https://github.com/orgs/BinaryBuilders-fsw38/repositories" 
                   target="_blank" 
@@ -124,12 +110,7 @@ const RecentProject = () => {
                 </a>
               </div>
               <h3 className="projectName text-[40px] font-semibold mt-5">
-                <a 
-                  href="#" 
-                  className="hover:scale-105 transition-transform duration-200"
-                >
-                  PINTER web
-                </a>
+                PINTER web
               </h3>
               <p className="projectDesc mt-2 text-gray-400">A Simple documentation website for PINTER</p>
               <div className="projectTech flex mt-5">
@@ -150,12 +131,21 @@ const RecentProject = () => {
                 ))}
               </div>
             </div>
+            <div className="flex items-end justify-end flex-1">
+                <img 
+                  src={hoveredProject2 ? "/images/detailPinterWeb.svg" : "/images/pinterWeb.jpg"} 
+                  alt="Project" 
+                  className="project-image w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
+                  onMouseEnter={() => setHoveredProject2(true)} 
+                  onMouseLeave={() => setHoveredProject2(false)} 
+                />
+            </div>
           </div>
         </div>
 
         {/* listProject 3 */}
         <div className="listProject mt-10 mb-10">
-          <div className="project">
+          <div className="project max-w-[1100px] h-[500px]">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
               <div className="flex space-x-2 mb-2">
                 <a href="https://github.com/orgs/BinaryBuilders-fsw38/repositories" 
@@ -172,12 +162,7 @@ const RecentProject = () => {
                 </a>
               </div>
               <h3 className="projectName text-[40px] font-semibold mt-5">
-                <a 
-                  href="#" 
-                  className="hover:scale-105 transition-transform duration-200"
-                >
                   skincommerce
-                </a>
               </h3>
               <p className="projectDesc mt-2 text-gray-400">A Simple website to purchase men skincare</p>
               <div className="projectTech flex mt-5">
@@ -203,7 +188,7 @@ const RecentProject = () => {
               <img 
                 src={hoveredProject3 ? "/images/detailSkincommerce.svg" : "/images/skincommerce.jpg"} 
                 alt="Project" 
-                className="w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
+                className="project-image w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
                 onMouseEnter={() => setHoveredProject3(true)} 
                 onMouseLeave={() => setHoveredProject3(false)} 
               />

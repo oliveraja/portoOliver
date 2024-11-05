@@ -1,49 +1,77 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import '../css/AboutMe.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutMe = () => {
+  const textRef = useRef<HTMLDivElement | null>(null);
+  const str = "About Me ◆ About Me ◆ About Me ◆ ";
+
   useEffect(() => {
+    // about me circle animation
+    if (textRef.current) {
+      const textElement = textRef.current;
+      textElement.innerHTML = "";
+
+      for (let i = 0; i < str.length; i++) {
+        const span = document.createElement("span");
+        span.innerHTML = str[i];
+        span.style.transform = `rotate(${11 * i}deg)`;
+        textElement.appendChild(span);
+      }
+    }
+
     // desc About Me animation
     gsap.fromTo(
       ".descAboutMe span",
-      { color: "rgba(255, 255, 255, 0.1)" },
+      { 
+        color: "rgba(255, 255, 255, 0.1)" 
+      },
       {
         color: "rgba(255, 255, 255, 1)",
-        duration: 0.5,
+        duration: 0.2,
         stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".descAboutMe",
+          start: "top 80%",
+          end: "top 30%",
+          toggleActions: "play none none reset", 
+          markers: false,
+        }
       }
     );
 
     // photo animation
-    gsap.fromTo(
-      ".aboutMeImage",
-      {
-        x: 200,
-        opacity: 0,
-        scale: 0.8,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1.5,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".aboutMeImage",
-          start: "top 80%",
-          end: "top 30%",
-          toggleActions: "play none none reset",
-          markers: false,
-        },
-      }
-    );
+    // gsap.fromTo(
+    //   ".aboutMeImage",
+    //   {
+    //     x: 200,
+    //     opacity: 0,
+    //     scale: 0.8,
+    //   },
+    //   {
+    //     x: 0,
+    //     opacity: 1,
+    //     scale: 1,
+    //     duration: 1.2,
+    //     ease: "power2.out",
+    //     scrollTrigger: {
+    //       trigger: ".aboutMeImage",
+    //       start: "top 80%",
+    //       end: "top 30%",
+    //       toggleActions: "play none none reset",
+    //       markers: false,
+    //       scrub: 0.5,
+    //     },
+    //   }
+    // );
   }, []);
 
   return (
     <section id="AboutMe" className="AboutMe px-10 pt-14">
+      {/* <p id="text" className="aboutMeText" ref={textRef}></p> */}
       <div className="aboutMe items-start justify-end mx-auto">
         <div className="titleAboutMe flex items-center justify-end">
           <div className="border-t border-gray-300 flex-grow mr-4" />
