@@ -4,16 +4,23 @@
 
 :root {
   font-family: 'Work Sans', system-ui, sans-serif;
-  line-height: 1.5;
+  line-height: 1;
   font-weight: 400;
-
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #191616;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #171717;
+}
+
+html.light-mode {
+  background-color: #FEFBF6;
+  color: #000000;
 }
 
 ::-webkit-scrollbar {
@@ -31,4 +38,36 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a5a5a5; 
+}
+
+html.light-mode a,
+html.light-mode h1,
+html.light-mode h2,
+html.light-mode h3,
+html.light-mode h4,
+html.light-mode h5,
+html.light-mode h6,
+html.light-mode p,
+html.light-mode li,
+html.light-mode button,
+html.light-mode input,
+html.light-mode textarea {
+  color: #000000;
+}
+
+html.light-mode .border, 
+html.light-mode .underline {
+  border-color: #000000;
+}
+
+html.light-mode .bg-white {
+  background-color: #ffffff;
+}
+
+html.light-mode .bg-gray-300 {
+  background-color: #d1d1d1;
+}
+
+html.light-mode .bg-gray-700 {
+  background-color: #5f5f5f;
 }
