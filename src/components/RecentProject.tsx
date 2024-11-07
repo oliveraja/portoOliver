@@ -15,7 +15,7 @@ const RecentProject = () => {
 
       gsap.set(container, { x: 0 });
 
-      // GSAP untuk running text
+      // GSAP for running text
       gsap.to(container, {
         x: `-=${titleWidth}`,
         duration: 200,
@@ -40,7 +40,7 @@ const RecentProject = () => {
         <div className="titleRecentProject flex flex-col items-center overflow-hidden">
           <div className="w-full border-t border-gray-300" />
           <div ref={titleRef} className="relative whitespace-nowrap" style={{ display: "inline-block" }}>
-            <h1 className="font-bold text-[70px] inline-block">
+            <h1 className="font-bold text-[70px] inline-block text-white">
               Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
               Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
               Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
@@ -53,8 +53,8 @@ const RecentProject = () => {
 
         {/* listProject 1 */}
         <div className="listProject mt-20">
-          <div className="project max-w-[1100px] h-[500px]">
-            <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
+          <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
+            <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">
                 <a href="https://github.com/oliveraja/SOP_Management_System" 
                   target="_blank" 
@@ -63,7 +63,7 @@ const RecentProject = () => {
                   <i className="fa-brands fa-github fa-2xl" style={{ color: "#ffffff" }}></i>
                 </a>
               </div>
-              <h3 className="projectName text-[40px] font-semibold mt-5">
+              <h3 className="projectName text-[40px] font-semibold mt-5 text-white">
                 Document Management System
               </h3>
               <p className="projectDesc mt-2 text-gray-400">A Simple website to manage document</p>
@@ -89,7 +89,7 @@ const RecentProject = () => {
               <img 
                 src={hoveredProject1 ? "/images/documentManager.svg" : "/images/dashboardAdminDM.png"} 
                 alt="Project" 
-                className="project-image w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
+                className="project-image w-full h-auto max-w-[665px] rounded-tl-lg rounded-br-lg transition-all duration-300 lg:w-[665px] lg:h-96" 
                 onMouseEnter={() => setHoveredProject1(true)} 
                 onMouseLeave={() => setHoveredProject1(false)} 
               />
@@ -99,8 +99,8 @@ const RecentProject = () => {
 
         {/* listProject 2 */}
         <div className="listProject mt-10">
-          <div className="project max-w-[1100px] h-[500px]">
-          <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
+          <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
+            <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">
                 <a href="https://github.com/orgs/BinaryBuilders-fsw38/repositories" 
                   target="_blank" 
@@ -109,7 +109,7 @@ const RecentProject = () => {
                   <i className="fa-brands fa-github fa-2xl" style={{ color: "#ffffff" }}></i>
                 </a>
               </div>
-              <h3 className="projectName text-[40px] font-semibold mt-5">
+              <h3 className="projectName text-[40px] font-semibold mt-5 text-white">
                 PINTER web
               </h3>
               <p className="projectDesc mt-2 text-gray-400">A Simple documentation website for PINTER</p>
@@ -135,7 +135,7 @@ const RecentProject = () => {
                 <img 
                   src={hoveredProject2 ? "/images/detailPinterWeb.svg" : "/images/pinterWeb.jpg"} 
                   alt="Project" 
-                  className="project-image w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
+                  className="project-image w-full h-auto max-w-[665px] rounded-tl-lg rounded-br-lg transition-all duration-300 lg:w-[665px] lg:h-96" 
                   onMouseEnter={() => setHoveredProject2(true)} 
                   onMouseLeave={() => setHoveredProject2(false)} 
                 />
@@ -145,8 +145,8 @@ const RecentProject = () => {
 
         {/* listProject 3 */}
         <div className="listProject mt-10 mb-10">
-          <div className="project max-w-[1100px] h-[500px]">
-            <div className="flex flex-col justify-start p-4 text-left mt-5 w-1/3">
+          <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
+            <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">
                 <a href="https://github.com/orgs/BinaryBuilders-fsw38/repositories" 
                   target="_blank" 
@@ -161,7 +161,7 @@ const RecentProject = () => {
                   <i className="fa-brands fa-medium fa-2xl" style={{ color: "#ffffff" }}></i>
                 </a>
               </div>
-              <h3 className="projectName text-[40px] font-semibold mt-5">
+              <h3 className="projectName text-[40px] font-semibold mt-5 text-white">
                   skincommerce
               </h3>
               <p className="projectDesc mt-2 text-gray-400">A Simple website to purchase men skincare</p>
@@ -188,7 +188,7 @@ const RecentProject = () => {
               <img 
                 src={hoveredProject3 ? "/images/detailSkincommerce.svg" : "/images/skincommerce.jpg"} 
                 alt="Project" 
-                className="project-image w-[665px] h-96 rounded-tl-lg rounded-br-lg transition-all duration-300" 
+                className="project-image w-full h-auto max-w-[665px] rounded-tl-lg rounded-br-lg transition-all duration-300 lg:w-[665px] lg:h-96" 
                 onMouseEnter={() => setHoveredProject3(true)} 
                 onMouseLeave={() => setHoveredProject3(false)} 
               />

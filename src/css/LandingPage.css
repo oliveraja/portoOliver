@@ -1,23 +1,3 @@
-/* Typewriter effect */
-@keyframes typewriter {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-/* Blinking cursor effect */
-@keyframes blink {
-  0%, 100% {
-    border-color: transparent;
-  }
-  50% {
-    border-color: white;
-  }
-}
-
 @media (max-width: 768px) {
   .name h1:first-child {
     font-size: 100px;
@@ -29,12 +9,3 @@
     font-size: 45px;
   }
 }
-
-
-/* Apply the typewriter effect */
-/* .typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 1px solid white;
-  animation: typewriter 4s steps(30, end), blink 0.75s step-end infinite;
-} */

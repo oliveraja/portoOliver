@@ -28,7 +28,8 @@
 
     .titleAboutMe h1 {
       font-size: 40px;
-      text-align: left;
+      justify-content: start;
+      margin-top: 20px;
     }
 
     .descAboutMe h3 {
@@ -36,6 +37,7 @@
       font-size: 16px;
       text-align: justify;
       margin-right: 0;
+      margin-top: 10px;
     }
   
     .descAboutMe {

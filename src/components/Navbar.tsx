@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import '../css/Navbar.css';
 
 interface NavbarProps {
   scrollToSection: (section: string) => void;
@@ -25,6 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
     }
   };
 
+  // close dimana aja untuk navbar
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -32,29 +34,53 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
     };
   }, []);
 
+  // ngeload recent theme yang dipake
   useEffect(() => {
-    // Set the theme based on the system preference initially
+    const savedTheme = localStorage.getItem("theme") as 'light' | 'dark' | 'system' | null;
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
-    if (theme === 'system') {
-      setTheme(systemTheme);
-    }
-  }, [theme]);
-
-  const handleThemeChange = (mode: 'light' | 'dark' | 'system') => {
-    setTheme(mode);
-    if (mode === 'light') {
+  
+    const initialTheme = savedTheme || systemTheme;
+    setTheme(initialTheme); // Set state dengan tema awal
+  
+    // Set class di document root sesuai tema yang diambil
+    if (initialTheme === 'light') {
       document.documentElement.classList.add('light-mode');
       document.documentElement.classList.remove('dark-mode');
-    } else if (mode === 'dark') {
+    } else if (initialTheme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+      document.documentElement.classList.remove('light-mode');
+    }
+  }, []);
+  
+
+  // buat yang light mode or night mdonya
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    if (theme === 'light') {
+      document.documentElement.classList.add('light-mode');
+      document.documentElement.classList.remove('dark-mode');
+    } else if (theme === 'dark') {
       document.documentElement.classList.add('dark-mode');
       document.documentElement.classList.remove('light-mode');
     } else {
-      document.documentElement.classList.remove('light-mode', 'dark-mode');
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
+      if (systemTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        document.documentElement.classList.remove('light-mode');
+      } else {
+        document.documentElement.classList.add('light-mode');
+        document.documentElement.classList.remove('dark-mode');
+      }
     }
+  }, [theme]);
+  
+
+  const handleThemeChange = (mode: 'light' | 'dark' | 'system') => {
+    setTheme(mode);
   };
 
   return (
-    <nav className="w-full px-10 sticky top-0 z-10 bg-[#191616]">
+    <nav className="w-full px-10 sticky top-0 z-10 bg-white dark:bg-[#191616]">
       <div className="flex flex-wrap items-center justify-between mx-auto py-4 w-full">
         <a
           onClick={() => scrollToSection("LandingPage")}
@@ -69,13 +95,16 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           aria-controls="navbar-hamburger"
           aria-expanded={isMenuOpen}
         >
-          <i className="fa-solid fa-bars fa-xl" style={{ color: "#ffffff" }}></i>
+          <i
+            className={`fa-solid fa-bars fa-xl ${document.documentElement.classList.contains("light-mode") ? "text-black" : "text-white"}`}
+          />
+
         </button>
       </div>
 
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full w-[500px] bg-[#E4E4E7] p-8 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[500px] sidebar bg-[#E4E4E7] p-8 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

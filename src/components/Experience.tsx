@@ -103,32 +103,23 @@ const Experience = () => {
   };
 
   const MobileTimeline = () => (
-    <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical text-left">
-      {experiences.map((experience, index) => (
-        <li key={index}>
-          <hr className="bg-white" />
-          <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="h-5 w-5">
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd" />
-            </svg>
-          </div>
-          <div className="timeline-start mb-10 md:text-end">
-            <time className="date font-mono italic">{experience.date}</time>
-            <div className="title text-lg font-black">{experience.title}</div>
-            <p className="desc text-justify">{experience.desc}</p>
-          </div>
-          <hr className="bg-white" />
-        </li>
-      ))}
-    </ul>
-  );
+  <ol className="relative border-s border-gray-200 dark:border-gray-700">
+    {experiences.map((experience, index) => (
+      <li key={index} className="ms-4 mb-10 text-left">
+        <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+        <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          {experience.date}
+        </time>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          {experience.title}
+        </h3>
+        <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+          {experience.desc}
+        </p>
+      </li>
+    ))}
+  </ol>
+);
 
   return (
     <section id="Experience" className="Experience px-4 md:px-10 pt-10">

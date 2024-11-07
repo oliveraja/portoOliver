@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import '../css/AboutMe.css';
@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutMe = () => {
   const textRef = useRef<HTMLDivElement | null>(null);
   const str = "About Me ◆ About Me ◆ About Me ◆ ";
+  const [isLightMode, setIsLightMode] = useState(false);
 
   useEffect(() => {
     // about me circle animation
@@ -24,15 +25,17 @@ const AboutMe = () => {
     }
 
     // desc About Me animation
+    const isLightMode = document.documentElement.classList.contains("light-mode");
+
     gsap.fromTo(
-      ".descAboutMe span",
+      ".descAboutMe .descText",
       { 
-        color: "rgba(255, 255, 255, 0.1)" 
+        color: isLightMode ? "rgba(128, 128, 128, 0.5)" : "rgba(255, 255, 255, 0.1)" // Start color (gray for light mode, light opacity for dark mode)
       },
       {
-        color: "rgba(255, 255, 255, 1)",
+        color: isLightMode ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)", // End color (black for light mode, white for dark mode)
         duration: 0.2,
-        stagger: 0.1,
+        stagger: 0.03,
         scrollTrigger: {
           trigger: ".descAboutMe",
           start: "top 80%",
@@ -47,7 +50,7 @@ const AboutMe = () => {
     // gsap.fromTo(
     //   ".aboutMeImage",
     //   {
-    //     x: 200,
+    //     x: 100,
     //     opacity: 0,
     //     scale: 0.8,
     //   },
@@ -67,14 +70,17 @@ const AboutMe = () => {
     //     },
     //   }
     // );
+
+    const currentMode = document.documentElement.classList.contains('light-mode');
+    setIsLightMode(currentMode);
   }, []);
 
   return (
     <section id="AboutMe" className="AboutMe px-10 pt-14">
       {/* <p id="text" className="aboutMeText" ref={textRef}></p> */}
       <div className="aboutMe items-start justify-end mx-auto">
-        <div className="titleAboutMe flex items-center justify-end">
-          <div className="border-t border-gray-300 flex-grow mr-4" />
+        <div className="titleAboutMe flex items-center md:justify-end">
+          <div className="border-t border-white flex-grow mr-4" />
           <h1 className="font-bold text-[70px] text-right">About me</h1>
         </div>
         <div className="descAboutMe flex justify-end">
@@ -83,7 +89,7 @@ const AboutMe = () => {
               {`I am a fifth-semester student majoring in Computer Science at Binus University. Currently, I am working part-time as an Education Counselor at BINUS University. I have improved my leadership, teamwork, problem-solving, and time management abilities through this position. I am deeply passionate about developing websites, particularly in the frontend domain. My academic journey has included multiple collaborative group projects, showcasing my ability to work effectively in a team for our final course assignments. I am a dedicated worker, known for my adaptability, strong work ethic, and enthusiasm for embracing new challenges.`
                 .split(" ")
                 .map((word, index) => (
-                  <span key={index} className="inline-block pr-1">
+                  <span key={index} className="descText inline-block pr-1">
                     {word}
                   </span>
                 ))}
@@ -113,7 +119,7 @@ const AboutMe = () => {
                     alt={tool.alt}
                     className="object-contain h-full w-full transition-opacity duration-300 group-hover:opacity-50"
                   />
-                  <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="absolute inset-0 flex items-center justify-center text-black dark:text-white font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {tool.alt}
                   </span>
                 </div>
@@ -121,9 +127,9 @@ const AboutMe = () => {
             </div>
           </div>
           <img
-            src="/images/me.png"
+            src={isLightMode ? '/images/me-white.png' : '/images/me.png'}
             alt="About Me"
-            className="aboutMeImage w-auto h-96 mr-7 transition-transform duration-300 transform hover:scale-110"
+            className="mt-5 aboutMeImage w-auto h-96 mr-7 transition-transform duration-300 transform hover:scale-110"
           />
         </div>
       </div>

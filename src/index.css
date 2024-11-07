@@ -32,42 +32,16 @@ html.light-mode {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffffff; 
+  background: #E4E4E7; 
   border-radius: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a5a5a5; 
 }
 
-html.light-mode a,
-html.light-mode h1,
-html.light-mode h2,
-html.light-mode h3,
-html.light-mode h4,
-html.light-mode h5,
-html.light-mode h6,
-html.light-mode p,
-html.light-mode li,
-html.light-mode button,
-html.light-mode input,
-html.light-mode textarea {
-  color: #000000;
-}
-
-html.light-mode .border, 
-html.light-mode .underline {
-  border-color: #000000;
-}
-
 html.light-mode .bg-white {
   background-color: #ffffff;
-}
-
-html.light-mode .bg-gray-300 {
-  background-color: #d1d1d1;
-}
-
-html.light-mode .bg-gray-700 {
-  background-color: #5f5f5f;
 }
