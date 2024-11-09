@@ -120,7 +120,7 @@ const AboutMe = () => {
 
 
   return (
-    <section id="AboutMe" className="AboutMe px-10 pt-14 bg-custom-light dark:bg-[#171717]">
+    <section id="AboutMe" className="AboutMe px-10 pt-20 bg-custom-light dark:bg-[#171717]">
       <div className="aboutMe items-start justify-end mx-auto">
         <div className="titleAboutMe flex items-center md:justify-end">
         <div className="border-t border-black dark:border-white flex-grow mr-4" />
