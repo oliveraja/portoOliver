@@ -39,33 +39,27 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
     const initialTheme = savedTheme || systemTheme;
     setTheme(initialTheme);
     if (initialTheme === 'light') {
-      document.documentElement.classList.add('light-mode');
-      document.documentElement.classList.remove('dark-mode');
+      document.documentElement.classList.remove('dark'); // Ubah ini
     } else if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark-mode');
-      document.documentElement.classList.remove('light-mode');
+      document.documentElement.classList.add('dark'); // Ubah ini
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    if (theme === 'light') {
-      document.documentElement.classList.add('light-mode');
-      document.documentElement.classList.remove('dark-mode');
-    } else if (theme === 'dark') {
-      document.documentElement.classList.add('dark-mode');
-      document.documentElement.classList.remove('light-mode');
-    } else {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
-      if (systemTheme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-        document.documentElement.classList.remove('light-mode');
+      localStorage.setItem("theme", theme);
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark'); // Ubah ini
+      } else if (theme === 'dark') {
+        document.documentElement.classList.add('dark'); // Ubah ini
       } else {
-        document.documentElement.classList.add('light-mode');
-        document.documentElement.classList.remove('dark-mode');
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
+        if (systemTheme === 'dark') {
+          document.documentElement.classList.add('dark'); // Ubah ini
+        } else {
+          document.documentElement.classList.remove('dark'); // Ubah ini
+        }
       }
-    }
-  }, [theme]);
+    }, [theme]);
 
   const handleThemeChange = (mode: 'light' | 'dark' | 'system') => {
     setTheme(mode);
@@ -76,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
     <nav className="w-full px-10 sticky top-0 z-10 bg-white dark:bg-[#191616]">
       <div className="flex flex-wrap items-center justify-between mx-auto py-4 w-full">
         <a onClick={() => scrollToSection("LandingPage")} className="flex items-center cursor-pointer">
-          <h1 className="text-2xl font-bold">verver</h1>
+          <h1 className="text-2xl font-bold text-black dark:text-white">verver</h1>
         </a>
         <button
           onClick={toggleMenu}

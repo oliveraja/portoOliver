@@ -13,35 +13,37 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #171717;
-}
-
-html.light-mode {
-  background-color: #FEFBF6;
-  color: #000000;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000; 
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E4E4E7; 
+  background: black;
   border-radius: 5px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a5a5a5; 
+  background: #a5a5a5;
 }
 
-html.light-mode .bg-white {
-  background-color: #ffffff;
+/* dark mode */
+html.dark ::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #E4E4E7;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #a5a5a5;
 }

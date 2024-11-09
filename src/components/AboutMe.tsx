@@ -14,12 +14,19 @@ const AboutMe = () => {
 
   useEffect(() => {
     const handleModeChange = () => {
-      const currentMode = document.documentElement.classList.contains('light-mode');
+      const currentMode = !document.documentElement.classList.contains('dark');
       setIsLightMode(currentMode);
       
       if (animationRef.current) {
         animationRef.current.kill();
       }
+
+      // Reset ScrollTrigger untuk section ini
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger === ".descAboutMe") {
+          trigger.kill(true);
+        }
+      });
 
       animationRef.current = gsap.fromTo(
         ".descAboutMe .descText",
@@ -62,6 +69,12 @@ const AboutMe = () => {
       if (animationRef.current) {
         animationRef.current.kill();
       }
+      // Kill semua ScrollTrigger saat component unmount
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger === ".descAboutMe") {
+          trigger.kill(true);
+        }
+      });
     };
   }, []);
 
@@ -107,11 +120,11 @@ const AboutMe = () => {
 
 
   return (
-    <section id="AboutMe" className="AboutMe px-10 pt-14">
+    <section id="AboutMe" className="AboutMe px-10 pt-14 bg-custom-light dark:bg-[#171717]">
       <div className="aboutMe items-start justify-end mx-auto">
         <div className="titleAboutMe flex items-center md:justify-end">
-          <div className="border-t border-white flex-grow mr-4" />
-          <h1 className="font-bold text-[70px] text-right">About me</h1>
+        <div className="border-t border-black dark:border-white flex-grow mr-4" />
+          <h1 className="font-bold text-[70px] text-right dark:text-white">About me</h1>
         </div>
         <div className="descAboutMe flex justify-end">
           <div className="">
@@ -124,7 +137,7 @@ const AboutMe = () => {
                   </span>
                 ))}
             </h3>
-            <h3 className="w-[800px] text-[25px] text-justify leading-relaxed mr-10 mt-5">
+            <h3 className="w-[800px] text-[25px] text-justify leading-relaxed mr-10 mt-5 dark:text-white">
               Tools I'm familiar with:
             </h3>
             <div className="flex flex-wrap mt-4">

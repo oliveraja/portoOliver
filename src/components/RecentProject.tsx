@@ -36,11 +36,6 @@ const RecentProject = () => {
         duration: 200,
         ease: "none",
         repeat: Infinity,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top center",
-          toggleActions: "play pause resume pause"
-        },
         modifiers: {
           x: (x) => {
             return `${parseFloat(x) % titleWidth}px`;
@@ -83,12 +78,12 @@ const RecentProject = () => {
   const [hoveredProject3, setHoveredProject3] = useState(false);
 
   return (
-    <section ref={sectionRef} id="RecentProject" className="RecentProject pt-10">
+    <section ref={sectionRef} id="RecentProject" className="RecentProject pt-10 bg-custom-light dark:bg-[#171717]">
       <div className="recentProject items-start justify-start mx-auto pt-10">
         <div className="titleRecentProject flex flex-col items-center overflow-hidden">
-          <div className="w-full border-t border-gray-300" />
+          <div className="w-full border-t border-black dark:border-gray-300 mt-2" />
           <div ref={titleRef} className="relative whitespace-nowrap" style={{ display: "inline-block" }}>
-            <h1 className="font-bold text-[70px] inline-block text-white">
+            <h1 className="font-bold text-[70px] inline-block text-black dark:text-white">
               Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
               Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
               Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
@@ -96,7 +91,7 @@ const RecentProject = () => {
               Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━
             </h1>
           </div>
-          <div className="w-full border-b border-gray-300 mt-2" />
+          <div className="w-full border-b border-black dark:border-gray-300 mt-2" />
         </div>
 
         {/* listProject 1 */}
@@ -192,7 +187,7 @@ const RecentProject = () => {
         </div>
 
         {/* listProject 3 */}
-        <div ref={addToRefs} className="listProject mt-10 mb-10">
+        <div ref={addToRefs} className="listProject mt-10 pb-20">
           <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">
