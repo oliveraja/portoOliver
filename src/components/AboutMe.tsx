@@ -6,12 +6,67 @@ import '../css/AboutMe.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutMe = () => {
-  const textRef = useRef<HTMLDivElement | null>(null);
+  const textRef = useRef<HTMLDivElement>(null);
   const str = "About Me ◆ About Me ◆ About Me ◆ ";
   const [isLightMode, setIsLightMode] = useState(false);
+  
+  const animationRef = useRef<gsap.core.Timeline | gsap.core.Tween | null>(null);
 
   useEffect(() => {
-    // about me circle animation
+    const handleModeChange = () => {
+      const currentMode = document.documentElement.classList.contains('light-mode');
+      setIsLightMode(currentMode);
+      
+      if (animationRef.current) {
+        animationRef.current.kill();
+      }
+
+      animationRef.current = gsap.fromTo(
+        ".descAboutMe .descText",
+        { 
+          color: currentMode ? "rgba(128, 128, 128, 0.5)" : "rgba(255, 255, 255, 0.1)"
+        },
+        {
+          color: currentMode ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)",
+          duration: 0.2,
+          stagger: 0.03,
+          scrollTrigger: {
+            trigger: ".descAboutMe",
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reset",
+            markers: false,
+          }
+        }
+      );
+    };
+
+    handleModeChange();
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          handleModeChange();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    // Cleanup
+    return () => {
+      observer.disconnect();
+      if (animationRef.current) {
+        animationRef.current.kill();
+      }
+    };
+  }, []);
+
+  // animation circle text
+  useEffect(() => {
     if (textRef.current) {
       const textElement = textRef.current;
       textElement.innerHTML = "";
@@ -23,30 +78,9 @@ const AboutMe = () => {
         textElement.appendChild(span);
       }
     }
+  }, []);
 
-    // desc About Me animation
-    const isLightMode = document.documentElement.classList.contains("light-mode");
-
-    gsap.fromTo(
-      ".descAboutMe .descText",
-      { 
-        color: isLightMode ? "rgba(128, 128, 128, 0.5)" : "rgba(255, 255, 255, 0.1)" // Start color (gray for light mode, light opacity for dark mode)
-      },
-      {
-        color: isLightMode ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)", // End color (black for light mode, white for dark mode)
-        duration: 0.2,
-        stagger: 0.03,
-        scrollTrigger: {
-          trigger: ".descAboutMe",
-          start: "top 80%",
-          end: "top 30%",
-          toggleActions: "play none none reset", 
-          markers: false,
-        }
-      }
-    );
-
-    // photo animation
+  // photo animation
     // gsap.fromTo(
     //   ".aboutMeImage",
     //   {
@@ -71,16 +105,12 @@ const AboutMe = () => {
     //   }
     // );
 
-    const currentMode = document.documentElement.classList.contains('light-mode');
-    setIsLightMode(currentMode);
-  }, []);
 
   return (
     <section id="AboutMe" className="AboutMe px-10 pt-14">
-      {/* <p id="text" className="aboutMeText" ref={textRef}></p> */}
       <div className="aboutMe items-start justify-end mx-auto">
         <div className="titleAboutMe flex items-center md:justify-end">
-        <div className="border-t border-white flex-grow mr-4" />
+          <div className="border-t border-white flex-grow mr-4" />
           <h1 className="font-bold text-[70px] text-right">About me</h1>
         </div>
         <div className="descAboutMe flex justify-end">
