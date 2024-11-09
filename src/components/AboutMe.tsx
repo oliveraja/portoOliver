@@ -80,7 +80,7 @@ const AboutMe = () => {
       {/* <p id="text" className="aboutMeText" ref={textRef}></p> */}
       <div className="aboutMe items-start justify-end mx-auto">
         <div className="titleAboutMe flex items-center md:justify-end">
-          <div className="border-t border-white flex-grow mr-4" />
+        <div className="border-t border-white flex-grow mr-4" />
           <h1 className="font-bold text-[70px] text-right">About me</h1>
         </div>
         <div className="descAboutMe flex justify-end">

@@ -1,9 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import '../css/RecentProject.css';
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const RecentProject = () => {
   const titleRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  const projectRefs = useRef<HTMLDivElement[]>([]);
+  projectRefs.current = [];
+
+  // Fix TypeScript error by adding proper type
+  const addToRefs = (el: HTMLDivElement | null) => {
+    if (el && !projectRefs.current.includes(el)) {
+      projectRefs.current.push(el);
+    }
+  };
 
   useEffect(() => {
     const container = titleRef.current;
@@ -15,12 +30,17 @@ const RecentProject = () => {
 
       gsap.set(container, { x: 0 });
 
-      // GSAP for running text
+      // Running text animation with ScrollTrigger
       gsap.to(container, {
         x: `-=${titleWidth}`,
         duration: 200,
         ease: "none",
-        repeat: Infinity, 
+        repeat: Infinity,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top center",
+          toggleActions: "play pause resume pause"
+        },
         modifiers: {
           x: (x) => {
             return `${parseFloat(x) % titleWidth}px`;
@@ -28,6 +48,34 @@ const RecentProject = () => {
         },
       });
     }
+
+    // Project items animation with ScrollTrigger
+    projectRefs.current.forEach((project, i) => {
+      gsap.fromTo(
+        project,
+        { 
+          y: 100, 
+          opacity: 0 
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: project,
+            start: "top bottom-=100",
+            toggleActions: "play none none none"
+          },
+          delay: i * 0.3 // Stagger effect
+        }
+      );
+    });
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   const [hoveredProject1, setHoveredProject1] = useState(false);
@@ -35,7 +83,7 @@ const RecentProject = () => {
   const [hoveredProject3, setHoveredProject3] = useState(false);
 
   return (
-    <section id="RecentProject" className="RecentProject pt-10">
+    <section ref={sectionRef} id="RecentProject" className="RecentProject pt-10">
       <div className="recentProject items-start justify-start mx-auto pt-10">
         <div className="titleRecentProject flex flex-col items-center overflow-hidden">
           <div className="w-full border-t border-gray-300" />
@@ -52,7 +100,7 @@ const RecentProject = () => {
         </div>
 
         {/* listProject 1 */}
-        <div className="listProject mt-20">
+        <div ref={addToRefs} className="listProject mt-20">
           <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">
@@ -98,7 +146,7 @@ const RecentProject = () => {
         </div>
 
         {/* listProject 2 */}
-        <div className="listProject mt-10">
+        <div ref={addToRefs} className="listProject mt-10">
           <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">
@@ -144,7 +192,7 @@ const RecentProject = () => {
         </div>
 
         {/* listProject 3 */}
-        <div className="listProject mt-10 mb-10">
+        <div ref={addToRefs} className="listProject mt-10 mb-10">
           <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">
