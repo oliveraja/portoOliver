@@ -93,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
 
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full w-[500px] sidebar bg-[#E4E4E7] p-8 transform transition-transform duration-300 ease-in-out ${
+        className={`sidebar fixed top-0 right-0 h-full md:w-[500px] bg-[#E4E4E7] p-8 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
