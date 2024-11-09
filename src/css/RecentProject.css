@@ -45,8 +45,8 @@
 }
 
 @media (max-width: 768px) {
-    .recentProject {
-        padding: 5px;
+    .listProject {
+        padding: 20px;
     }
   
     .project-image {
