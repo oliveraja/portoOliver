@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import '../css/Navbar.css';
+import { useTheme } from "./ThemeSetting";
 
 interface NavbarProps {
   scrollToSection: (section: string) => void;
@@ -7,7 +8,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system');
+  const { theme, setTheme } = useTheme();
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
@@ -36,34 +37,41 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as 'light' | 'dark' | 'system' | null;
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
-    const initialTheme = savedTheme || systemTheme;
+    const initialTheme = savedTheme || 'system';
     setTheme(initialTheme);
-    if (initialTheme === 'light') {
-      document.documentElement.classList.remove('dark'); // Ubah ini
+
+    if (initialTheme === 'system') {
+      if (systemTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } else if (initialTheme === 'light') {
+      document.documentElement.classList.remove('dark');
     } else if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark'); // Ubah ini
+      document.documentElement.classList.add('dark');
     }
-  }, []);
+}, []);
 
   useEffect(() => {
       localStorage.setItem("theme", theme);
       if (theme === 'light') {
-        document.documentElement.classList.remove('dark'); // Ubah ini
+        document.documentElement.classList.remove('dark');
       } else if (theme === 'dark') {
-        document.documentElement.classList.add('dark'); // Ubah ini
+        document.documentElement.classList.add('dark');
       } else {
         const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
         if (systemTheme === 'dark') {
-          document.documentElement.classList.add('dark'); // Ubah ini
+          document.documentElement.classList.add('dark');
         } else {
-          document.documentElement.classList.remove('dark'); // Ubah ini
+          document.documentElement.classList.remove('dark');
         }
       }
     }, [theme]);
 
   const handleThemeChange = (mode: 'light' | 'dark' | 'system') => {
     setTheme(mode);
-    setIsMenuOpen(false); // Tutup sidebar setelah mengubah tema
+    setIsMenuOpen(false);
   };
 
   return (
