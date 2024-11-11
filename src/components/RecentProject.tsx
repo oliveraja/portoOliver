@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const RecentProject = () => {
   const titleRef = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
+  const animationRef = useRef<gsap.core.Tween | null>(null);
 
   const projectRefs = useRef<HTMLDivElement[]>([]);
   projectRefs.current = [];
@@ -30,21 +31,20 @@ const RecentProject = () => {
 
       gsap.set(container, { x: 0 });
 
-      // Running text animation with ScrollTrigger
-      gsap.to(container, {
+      // running text animation
+      animationRef.current = gsap.to(container, {
         x: `-=${titleWidth}`,
         duration: 200,
         ease: "none",
         repeat: Infinity,
         modifiers: {
-          x: (x) => {
-            return `${parseFloat(x) % titleWidth}px`;
-          },
+          x: (x) => `${parseFloat(x) % titleWidth}px`
         },
       });
+      
     }
 
-    // Project items animation with ScrollTrigger
+    // listProject animation dengan scroll target
     projectRefs.current.forEach((project, i) => {
       gsap.fromTo(
         project,
