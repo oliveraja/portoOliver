@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import '../css/RecentProject.css';
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const RecentProject = () => {
@@ -14,7 +13,6 @@ const RecentProject = () => {
   const projectRefs = useRef<HTMLDivElement[]>([]);
   projectRefs.current = [];
 
-  // Fix TypeScript error by adding proper type
   const addToRefs = (el: HTMLDivElement | null) => {
     if (el && !projectRefs.current.includes(el)) {
       projectRefs.current.push(el);
@@ -34,7 +32,7 @@ const RecentProject = () => {
       // running text animation
       animationRef.current = gsap.to(container, {
         x: `-=${titleWidth}`,
-        duration: 200,
+        duration: 50,
         ease: "none",
         repeat: Infinity,
         modifiers: {
@@ -62,12 +60,11 @@ const RecentProject = () => {
             start: "top bottom-=100",
             toggleActions: "play none none none"
           },
-          delay: i * 0.3 // Stagger effect
+          delay: i * 0.3
         }
       );
     });
 
-    // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -85,10 +82,6 @@ const RecentProject = () => {
           <div ref={titleRef} className="relative whitespace-nowrap" style={{ display: "inline-block" }}>
             <h1 className="font-bold text-[70px] inline-block text-black dark:text-white">
               Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
-              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
-              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
-              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━ 
-              Recent Project ━ Recent Project ━ Recent Project ━ Recent Project ━
             </h1>
           </div>
           <div className="w-full border-b border-black dark:border-gray-300 mt-2" />

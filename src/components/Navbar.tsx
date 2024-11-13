@@ -75,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
   };
 
   return (
-    <nav className="w-full px-10 sticky top-0 z-10 bg-white dark:bg-[#191616]">
+    <nav className="w-full px-10 sticky top-0 z-10 bg-custom-light dark:bg-[#191616]">
       <div className="flex flex-wrap items-center justify-between mx-auto py-4 w-full">
         <a onClick={() => scrollToSection("LandingPage")} className="flex items-center cursor-pointer">
           <h1 className="text-2xl font-bold text-black dark:text-white">verver</h1>
@@ -112,23 +112,38 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
 
           <ul className="space-y-6">
             <li>
-              <h1 onClick={() => { scrollToSection("LandingPage"); setIsMenuOpen(false); }} className="text-[55px] text-gray-900 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400">Home</h1>
+              <h1 onClick={() => { scrollToSection("LandingPage"); setIsMenuOpen(false); }} 
+                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                  Home
+              </h1>
             </li>
             <li>
-              <h1 onClick={() => { scrollToSection("AboutMe"); setIsMenuOpen(false); }} className="text-[55px] text-gray-900 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400">About</h1>
+              <h1 onClick={() => { scrollToSection("AboutMe"); setIsMenuOpen(false); }} 
+                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                    About
+              </h1>
             </li>
             <li>
-              <h1 onClick={() => { scrollToSection("Experience"); setIsMenuOpen(false); }} className="text-[55px] text-gray-900 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400">Experience</h1>
+              <h1 onClick={() => { scrollToSection("Experience"); setIsMenuOpen(false); }} 
+                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                    Experience
+              </h1>
             </li>
             <li>
-              <h1 onClick={() => { scrollToSection("RecentProject"); setIsMenuOpen(false); }} className="text-[55px] text-gray-900 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400">Project</h1>
+              <h1 onClick={() => { scrollToSection("RecentProject"); setIsMenuOpen(false); }} 
+                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                    Project
+              </h1>
             </li>
             <li>
-              <h1 onClick={() => { scrollToSection("ContactMe"); setIsMenuOpen(false); }} className="text-[55px] text-gray-900 cursor-pointer hover:text-blue-700 dark:hover:text-blue-400">Contact</h1>
+              <h1 onClick={() => { scrollToSection("ContactMe"); setIsMenuOpen(false); }} 
+                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                    Contact
+                </h1>
             </li>
           </ul>
 
-          <div className="mode flex gap-4 mt-10">
+          <div className="mode flex gap-4 mt-20">
             <div
               onClick={() => handleThemeChange('light')}
               className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110"
