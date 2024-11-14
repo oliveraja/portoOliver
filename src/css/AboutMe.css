@@ -22,6 +22,9 @@
 }
 
 @media (max-width: 768px) {
+    .AboutMe{
+      padding-top: 0;
+    }
     .titleAboutMe .border-t {
       display: none;
     }
@@ -29,7 +32,6 @@
     .titleAboutMe h1 {
       font-size: 40px;
       justify-content: start;
-      margin-top: 20px;
     }
 
     .descAboutMe h3 {

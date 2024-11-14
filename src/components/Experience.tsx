@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
+import '../css/Experience.css';
 
 const Experience = () => {
   const [isMobile, setIsMobile] = useState(false);
