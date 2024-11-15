@@ -1,16 +1,29 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import '../css/LandingPage.css';
+import { useAnimation } from '../animation/AnimationContext';
 
 const LandingPage = () => {
+  const { startLandingAnimation } = useAnimation();
   const oliverRef = useRef(null);
   const sebastianRef = useRef(null);
   const marpaungRef = useRef(null);
-  const locationRef = useRef(null)
+  const locationRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline();
-    tl.fromTo(
+    if (!startLandingAnimation) return;
+
+    gsap.set([oliverRef.current, sebastianRef.current, marpaungRef.current, locationRef.current], {
+      y: -200,
+      opacity: 0
+    });
+
+    // delay sebelom animasi jalan
+    const tl = gsap.timeline({
+      delay: 0.8
+    });
+    
+    tl.fromTo( //didelay antar tiap component
       oliverRef.current,
       { y: -200, opacity: 0 },
       { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
@@ -18,19 +31,22 @@ const LandingPage = () => {
       .fromTo(
         sebastianRef.current,
         { y: -200, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+        "+=0.2"
       )
       .fromTo(
         marpaungRef.current,
         { y: -200, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+        "+=0.2"
       )
       .fromTo(
         locationRef.current,
         { y: -200, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+        "+=0.2"
       );
-  }, []);
+  }, [startLandingAnimation]);
 
   return (
     <section 
@@ -58,7 +74,7 @@ const LandingPage = () => {
             <p>Indonesia</p>
           </div>
           <div className="circle w-20 h-20 bg-white rounded-full">
-          <img src="/earth.gif" alt="Earth" className="w-full h-full object-cover rounded-full" />
+            <img src="/earth.gif" alt="Earth" className="w-full h-full object-cover rounded-full" />
           </div>
         </div>
       </div>
