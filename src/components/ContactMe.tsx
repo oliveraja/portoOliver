@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,7 +10,7 @@ const ContactMe = () => {
   const greetingRef = useRef<HTMLHeadingElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const contactsRef = useRef<HTMLDivElement>(null);
-  const [showRightSection, setShowRightSection] = useState(false);
+  const [, setShowRightSection] = useState(false);
 
   useEffect(() => {
     const typewriter = (
