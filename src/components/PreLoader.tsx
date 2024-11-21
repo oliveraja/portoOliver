@@ -12,6 +12,8 @@ const PreLoader = () => {
     const progressTextRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        document.body.classList.add("no-scroll");
+
         const tl = gsap.timeline();
         
         if (!preloaderRef.current || !textContainerRef.current || !progressFillRef.current || !progressTextRef.current) return;
@@ -112,6 +114,7 @@ const PreLoader = () => {
             onComplete: () => {
                 if (preloaderRef.current) {
                     preloaderRef.current.style.display = 'none';
+                    document.body.classList.remove("no-scroll");
                 }
             }
         });

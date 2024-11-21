@@ -95,7 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
 
       <div
         ref={sidebarRef}
-        className={`sidebar fixed top-0 right-0 h-full md:w-[500px] bg-[#E4E4E7] p-8 transform transition-transform duration-300 ease-in-out ${
+        className={`sidebar fixed top-0 right-0 h-full md:w-[500px] bg-gray-800 dark:bg-custom-light p-8 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -107,37 +107,37 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
         </button>
 
         <div className="mt-14 text-left">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-2">Jalan jalan di website aing</h3>
+          <h3 className="text-2xl font-semibold text-white dark:text-gray-900 mb-2">Jalan jalan di website aing</h3>
           <div className="h-[2px] bg-gray-500 mb-8"></div>
 
           <ul className="space-y-6">
             <li>
               <h1 onClick={() => { scrollToSection("LandingPage"); setIsMenuOpen(false); }} 
-                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                  className="text-[55px] text-white dark:text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
                   Home
               </h1>
             </li>
             <li>
               <h1 onClick={() => { scrollToSection("AboutMe"); setIsMenuOpen(false); }} 
-                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                  className="text-[55px] text-white dark:text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
                     About
               </h1>
             </li>
             <li>
               <h1 onClick={() => { scrollToSection("Experience"); setIsMenuOpen(false); }} 
-                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                  className="text-[55px] text-white dark:text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
                     Experience
               </h1>
             </li>
             <li>
               <h1 onClick={() => { scrollToSection("RecentProject"); setIsMenuOpen(false); }} 
-                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                  className="text-[55px] text-white dark:text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
                     Project
               </h1>
             </li>
             <li>
               <h1 onClick={() => { scrollToSection("ContactMe"); setIsMenuOpen(false); }} 
-                  className="text-[55px] text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
+                  className="text-[55px] text-white dark:text-gray-900 cursor-pointer hover:text-[60px] transition-all duration-300">
                     Contact
                 </h1>
             </li>
@@ -146,19 +146,19 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           <div className="mode flex gap-4 mt-20">
             <div
               onClick={() => handleThemeChange('light')}
-              className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110"
+              className="w-12 h-12 bg-white dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110"
             >
               <i className="fa-solid fa-sun"></i>
             </div>
             <div
               onClick={() => handleThemeChange('dark')}
-              className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110"
+              className="w-12 h-12 bg-white dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110"
             >
               <i className="fa-solid fa-moon"></i>
             </div>
             <div
               onClick={() => handleThemeChange('system')}
-              className="w-12 h-12 bg-gray-300 dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110"
+              className="w-12 h-12 bg-white dark:bg-gray-700 flex items-center justify-center rounded-full text-xl text-gray-800 dark:text-gray-200 cursor-pointer transform transition-transform duration-200 hover:scale-110"
             >
               <i className="fa-solid fa-desktop"></i>
             </div>
