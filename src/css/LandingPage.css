@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+  .LandingPage {
+    padding-top: 50%;
+    padding-bottom: 0;
+  }
+  .name h1:first-child {
+    font-size: 100px;
+  }
+  .name h1:nth-child(2) {
+    font-size: 45px;
+  }
+  .name h1:nth-child(3) {
+    font-size: 45px;
+  }
+}

@@ -1,0 +1,7 @@
+li.ms-4 {
+  margin-bottom: 2.5rem;
+}
+
+li.ms-4:last-child {
+  margin-bottom: 0;
+}
