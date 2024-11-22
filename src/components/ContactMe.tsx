@@ -7,15 +7,33 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ContactMe = () => {
   const [displayText, setDisplayText] = useState('');
+  const [startTypewriter, setStartTypewriter] = useState(false);
   const fullText = "Because you know what happens when you say 'hello' or 'good morning?' You make a connection. And isn't that what being human is all about?";
   const halohaRef = useRef<HTMLHeadingElement>(null);
   const leftSectionRef = useRef<HTMLDivElement>(null);
   const middleSectionRef = useRef<HTMLDivElement>(null);
   const rightSectionRef = useRef<HTMLDivElement>(null);
+  const typewriterIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Reset function for all animations
+  const resetAnimations = () => {
+    setDisplayText('');
+    setStartTypewriter(false);
+    if (typewriterIntervalRef.current) {
+      clearInterval(typewriterIntervalRef.current);
+    }
+    
+    if (leftSectionRef.current && middleSectionRef.current && rightSectionRef.current) {
+      gsap.set([leftSectionRef.current, middleSectionRef.current, rightSectionRef.current], {
+        opacity: 0,
+        x: 50
+      });
+    }
+  };
 
   useEffect(() => {
-    // Scroll-triggered animations
-    ScrollTrigger.create({
+    // Create ScrollTrigger
+    const st = ScrollTrigger.create({
       trigger: "#ContactMe",
       start: "top center",
       onEnter: () => {
@@ -28,32 +46,76 @@ const ContactMe = () => {
               x: 0, 
               duration: 1, 
               ease: "power2.out", 
-              stagger: 0.2 
+              stagger: 0.2,
+              onComplete: () => {
+                setTimeout(() => {
+                  setStartTypewriter(true);
+                }, 300);
+              }
             }
           );
         }
       },
+      onLeave: resetAnimations,
+      onEnterBack: () => {
+        resetAnimations();
+        if (leftSectionRef.current && middleSectionRef.current && rightSectionRef.current) {
+          gsap.fromTo(
+            [leftSectionRef.current, middleSectionRef.current, rightSectionRef.current],
+            { opacity: 0, x: 50 },
+            { 
+              opacity: 1, 
+              x: 0, 
+              duration: 1, 
+              ease: "power2.out", 
+              stagger: 0.2,
+              onComplete: () => {
+                setTimeout(() => {
+                  setStartTypewriter(true);
+                }, 300);
+              }
+            }
+          );
+        }
+      },
+      onLeaveBack: resetAnimations,
     });
 
-    // Typewriter effect
-    let index = 0;
-    const interval = setInterval(() => {
-      setDisplayText((prev) => prev + fullText[index]);
-      index++;
-      if (index >= fullText.length) {
-        clearInterval(interval);
-      }
-    }, 50); // Adjust typing speed here (in milliseconds)
-
-    return () => clearInterval(interval);
+    return () => {
+      st.kill();
+      resetAnimations();
+    };
   }, []);
+
+  // Typewriter effect
+  useEffect(() => {
+    if (!startTypewriter) return;
+
+    let index = 0;
+    typewriterIntervalRef.current = setInterval(() => {
+      if (index >= fullText.length) {
+        if (typewriterIntervalRef.current) {
+          clearInterval(typewriterIntervalRef.current);
+        }
+        return;
+      }
+      setDisplayText(() => fullText.slice(0, index + 1));
+      index++;
+    }, 50);
+
+    return () => {
+      if (typewriterIntervalRef.current) {
+        clearInterval(typewriterIntervalRef.current);
+      }
+    };
+  }, [startTypewriter]);
 
   return (
     <section 
       id="ContactMe" 
       className="ContactMe bg-custom-light dark:bg-[#171717] bg-cover bg-center bg-no-repeat flex flex-col items-center px-10 md:px-10 pt-20"
     >
-      <div className="w-full flex flex-col md:flex-row items-center justify-center mb-10 relative">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center relative min-h-[400px]">
         <div 
           ref={leftSectionRef}
           className="w-full md:w-[60%] flex flex-col items-center md:items-start justify-center pr-5"
@@ -64,11 +126,13 @@ const ContactMe = () => {
           >
             Haloooha
           </h1>
-          <h3 
-            className="w-[550px] mt-4 text-[18px] md:text-[25px] text-black dark:text-gray-50 text-center md:text-left italic typewriter"
-          >
-            {displayText}
-          </h3>
+          <div className="h-[120px] w-[550px] mt-4">
+            <h3 
+              className={`text-[18px] md:text-[25px] text-black dark:text-gray-50 text-center md:text-left italic typewriter ${!startTypewriter ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}
+            >
+              {displayText}
+            </h3>
+          </div>
         </div>
         
         <div className="hidden md:block absolute left-[60%] w-[2px] h-[250px] bg-black dark:bg-white"></div>
@@ -107,8 +171,8 @@ const ContactMe = () => {
               <h2 className="italic text-[16px] md:text-[20px] hover:text-[20px] md:hover:text-[25px] transition-all duration-300">youtube</h2>
             </a>
           </div>
-          <div className="hidden md:block absolute right-0 w-[2px] h-[250px] bg-black dark:bg-white"></div>
         </div>
+        <div className="hidden md:block absolute right-0 w-[2px] h-[250px] bg-black dark:bg-white"></div>
       </div>
     </section>
   );

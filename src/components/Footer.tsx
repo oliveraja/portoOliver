@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
       <section>
-        <footer className="bg-custom-light dark:bg-[#171717] text-black dark:text-white px-10 pt-32">
+        <footer className="bg-custom-light dark:bg-[#171717] text-black dark:text-white px-10">
           <div className="">
             <div className="border-t-2 dark:border-white w-full"></div>
           </div>
