@@ -35,8 +35,8 @@ const AboutMe = () => {
         },
         {
           color: currentMode ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)",
-          duration: 0.2,
-          stagger: 0.03,
+          duration: 0.5,
+          stagger: 0.01,
           scrollTrigger: {
             trigger: ".descAboutMe",
             start: "top 80%",
@@ -129,7 +129,7 @@ const AboutMe = () => {
         <div className="descAboutMe flex justify-end">
           <div className="">
             <h3 className="w-[800px] text-[25px] text-justify leading-relaxed mr-10">
-              {`I am a fifth-semester student majoring in Computer Science at Binus University. Currently, I am working part-time as an Education Counselor at BINUS University. I have improved my leadership, teamwork, problem-solving, and time management abilities through this position. I am deeply passionate about developing websites, particularly in the frontend domain. My academic journey has included multiple collaborative group projects, showcasing my ability to work effectively in a team for our final course assignments. I am a dedicated worker, known for my adaptability, strong work ethic, and enthusiasm for embracing new challenges.`
+              {`I am a seventh-semester student majoring in Computer Science at Binus University, currently interning as an IT Developer at CIMB Niaga. I have improved my leadership, teamwork, problem-solving, and time-management abilities through this position. I am deeply passionate about developing websites, particularly in the front-end domain. My academic journey has included multiple collaborative group projects, showcasing my ability to work effectively in a team for our final course assignments. I am a dedicated worker, known for my adaptability, strong work ethic, and enthusiasm for embracing new challenges.`
                 .split(" ")
                 .map((word, index) => (
                   <span key={index} className="descText inline-block pr-1">
@@ -137,7 +137,7 @@ const AboutMe = () => {
                   </span>
                 ))}
             </h3>
-            <h3 className="w-[800px] text-[25px] text-justify leading-relaxed mr-10 mt-5 dark:text-white">
+            <h3 className="w-[800px] text-[25px] text-justify leading-relaxed mr-10 mt-16 dark:text-white">
               Tools I'm familiar with:
             </h3>
             <div className="flex flex-wrap mt-4">

@@ -1,9 +1,9 @@
 const Footer = () => {
     return (
       <section>
-        <footer className="bg-[url('/images/bgDark2.svg')] dark:bg-[url('/images/bgWhite2.svg')] bg-cover bg-center bg-no-repeat text-white dark:text-black px-10">
+        <footer className="bg-custom-light dark:bg-[#171717] text-black dark:text-white px-10 pt-32">
           <div className="">
-            <div className="border-t-2 dark:border-black w-full"></div>
+            <div className="border-t-2 dark:border-white w-full"></div>
           </div>
           <div className="w-full mx-auto p-5 md:flex md:items-center md:justify-between">
             <span className="text-[80px] font-bold">verver</span>

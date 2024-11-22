@@ -75,7 +75,7 @@ const RecentProject = () => {
   const [hoveredProject3, setHoveredProject3] = useState(false);
 
   return (
-    <section ref={sectionRef} id="RecentProject" className="RecentProject pt-10 bg-custom-light dark:bg-[#171717]">
+    <section ref={sectionRef} id="RecentProject" className="RecentProject pt-20 bg-custom-light dark:bg-[#171717]">
       <div className="recentProject items-start justify-start mx-auto pt-10">
         <div className="titleRecentProject flex flex-col items-center overflow-hidden">
           <div className="w-full border-t border-black dark:border-gray-300 mt-2" />

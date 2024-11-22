@@ -51,7 +51,7 @@ const LandingPage = () => {
   return (
     <section 
       id='LandingPage' 
-      className='LandingPage bg-custom-light dark:bg-[#171717] px-5 h-screen'
+      className='LandingPage bg-custom-light dark:bg-[#171717] px-10 h-screen'
       style={{ overflow: 'hidden' }}
     >
       <div className="flex flex-col items-center justify-center">
