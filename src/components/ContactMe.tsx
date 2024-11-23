@@ -26,7 +26,7 @@ const ContactMe = () => {
     if (leftSectionRef.current && middleSectionRef.current && rightSectionRef.current) {
       gsap.set([leftSectionRef.current, middleSectionRef.current, rightSectionRef.current], {
         opacity: 0,
-        x: 50
+        y: 50 // Changed from x to y for bottom-to-top animation
       });
     }
   };
@@ -40,10 +40,13 @@ const ContactMe = () => {
         if (leftSectionRef.current && middleSectionRef.current && rightSectionRef.current) {
           gsap.fromTo(
             [leftSectionRef.current, middleSectionRef.current, rightSectionRef.current],
-            { opacity: 0, x: 50 },
+            { 
+              opacity: 0, 
+              y: 50 // Starting position from bottom
+            },
             { 
               opacity: 1, 
-              x: 0, 
+              y: 0, // Move to original position
               duration: 1, 
               ease: "power2.out", 
               stagger: 0.2,
@@ -62,10 +65,13 @@ const ContactMe = () => {
         if (leftSectionRef.current && middleSectionRef.current && rightSectionRef.current) {
           gsap.fromTo(
             [leftSectionRef.current, middleSectionRef.current, rightSectionRef.current],
-            { opacity: 0, x: 50 },
+            { 
+              opacity: 0, 
+              y: 50 // Starting position from bottom
+            },
             { 
               opacity: 1, 
-              x: 0, 
+              y: 0, // Move to original position
               duration: 1, 
               ease: "power2.out", 
               stagger: 0.2,
