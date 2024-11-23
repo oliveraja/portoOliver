@@ -15,7 +15,6 @@ const ContactMe = () => {
   const rightSectionRef = useRef<HTMLDivElement>(null);
   const typewriterIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Reset function for all animations
   const resetAnimations = () => {
     setDisplayText('');
     setStartTypewriter(false);
@@ -26,13 +25,12 @@ const ContactMe = () => {
     if (leftSectionRef.current && middleSectionRef.current && rightSectionRef.current) {
       gsap.set([leftSectionRef.current, middleSectionRef.current, rightSectionRef.current], {
         opacity: 0,
-        y: 50 // Changed from x to y for bottom-to-top animation
+        y: 50
       });
     }
   };
 
   useEffect(() => {
-    // Create ScrollTrigger
     const st = ScrollTrigger.create({
       trigger: "#ContactMe",
       start: "top center",
@@ -42,11 +40,11 @@ const ContactMe = () => {
             [leftSectionRef.current, middleSectionRef.current, rightSectionRef.current],
             { 
               opacity: 0, 
-              y: 50 // Starting position from bottom
+              y: 50
             },
             { 
               opacity: 1, 
-              y: 0, // Move to original position
+              y: 0,
               duration: 1, 
               ease: "power2.out", 
               stagger: 0.2,
@@ -67,11 +65,11 @@ const ContactMe = () => {
             [leftSectionRef.current, middleSectionRef.current, rightSectionRef.current],
             { 
               opacity: 0, 
-              y: 50 // Starting position from bottom
+              y: 50
             },
             { 
               opacity: 1, 
-              y: 0, // Move to original position
+              y: 0,
               duration: 1, 
               ease: "power2.out", 
               stagger: 0.2,
@@ -93,7 +91,6 @@ const ContactMe = () => {
     };
   }, []);
 
-  // Typewriter effect
   useEffect(() => {
     if (!startTypewriter) return;
 
@@ -119,12 +116,13 @@ const ContactMe = () => {
   return (
     <section 
       id="ContactMe" 
-      className="ContactMe bg-custom-light dark:bg-[#171717] bg-cover bg-center bg-no-repeat flex flex-col items-center px-10 md:px-10 pt-20"
+      className="ContactMe bg-custom-light dark:bg-[#171717] bg-cover bg-center bg-no-repeat flex flex-col items-center px-5 md:px-10 pt-20 pb-8 md:pb-0"
     >
       <div className="w-full flex flex-col md:flex-row items-center justify-center relative min-h-[400px]">
+        {/* Left Section - Title and Typewriter */}
         <div 
           ref={leftSectionRef}
-          className="w-full md:w-[60%] flex flex-col items-center md:items-start justify-center pr-5"
+          className="w-full md:w-[60%] flex flex-col items-center md:items-start justify-center md:pr-5"
         >
           <h1 
             ref={halohaRef} 
@@ -132,7 +130,7 @@ const ContactMe = () => {
           >
             Haloooha
           </h1>
-          <div className="h-[120px] w-[550px] mt-4">
+          <div className="w-full px-5 md:w-[550px] mt-4">
             <h3 
               className={`text-[18px] md:text-[25px] text-black dark:text-gray-50 text-center md:text-left italic typewriter ${!startTypewriter ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}
             >
@@ -141,21 +139,58 @@ const ContactMe = () => {
           </div>
         </div>
         
+        {/* Vertical line - Desktop only */}
         <div className="hidden md:block absolute left-[60%] w-[2px] h-[250px] bg-black dark:bg-white"></div>
 
+        {/* Mobile layout for social links */}
+        <div className="md:hidden w-full mt-8 mb-[30px]">
+          {/* Horizontal line */}
+          <div className="w-full h-[2px] bg-black dark:bg-white my-6"></div>
+          
+          {/* First set of social links */}
+          <div className="flex flex-col space-y-4 items-center">
+            <a href="mailto:oliversebastian321@gmail.com" target="_blank" rel="noopener noreferrer">
+              <h2 className="italic text-[18px] hover:text-[20px] transition-all duration-300 text-black dark:text-white">email</h2>
+            </a>
+            <a href="https://www.linkedin.com/in/oliversebastianmarpaung/" target="_blank" rel="noopener noreferrer">
+              <h2 className="italic text-[18px] hover:text-[20px] transition-all duration-300 text-black dark:text-white">linkedin</h2>
+            </a>
+            <a href="https://www.instagram.com/oliversebastian__/" target="_blank" rel="noopener noreferrer">
+              <h2 className="italic text-[18px] hover:text-[20px] transition-all duration-300 text-black dark:text-white">instagram</h2>
+            </a>
+          </div>
+
+          {/* Second horizontal line */}
+          <div className="w-full h-[2px] bg-black dark:bg-white my-6"></div>
+          
+          {/* Second set of social links */}
+          <div className="flex flex-col space-y-4 items-center">
+            <a href="https://github.com/oliveraja" target="_blank" rel="noopener noreferrer">
+              <h2 className="italic text-[18px] hover:text-[20px] transition-all duration-300 text-black dark:text-white">github</h2>
+            </a>
+            <a href="https://medium.com/@oliversebastian" target="_blank" rel="noopener noreferrer">
+              <h2 className="italic text-[18px] hover:text-[20px] transition-all duration-300 text-black dark:text-white">medium</h2>
+            </a>
+            <a href="https://www.youtube.com/@oliversebastian" target="_blank" rel="noopener noreferrer">
+              <h2 className="italic text-[18px] hover:text-[20px] transition-all duration-300 text-black dark:text-white">youtube</h2>
+            </a>
+          </div>
+        </div>
+
+        {/* Desktop layout for social links */}
         <div 
           ref={middleSectionRef}
-          className="w-full md:w-[20%] flex justify-center items-center"
+          className="hidden md:flex w-[20%] justify-center items-center"
         >
           <div className="medsos flex flex-col space-y-4 justify-center text-black dark:text-white text-center">
             <a href="mailto:oliversebastian321@gmail.com" target="_blank" rel="noopener noreferrer">
-              <h2 className="italic text-[16px] md:text-[20px] hover:text-[20px] md:hover:text-[25px] transition-all duration-300">email</h2>
+              <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">email</h2>
             </a>
             <a href="https://www.linkedin.com/in/oliversebastianmarpaung/" target="_blank" rel="noopener noreferrer">
-              <h2 className="italic text-[16px] md:text-[20px] hover:text-[20px] md:hover:text-[25px] transition-all duration-300">linkedin</h2>
+              <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">linkedin</h2>
             </a>
             <a href="https://www.instagram.com/oliversebastian__/" target="_blank" rel="noopener noreferrer">
-              <h2 className="italic text-[16px] md:text-[20px] hover:text-[20px] md:hover:text-[25px] transition-all duration-300">instagram</h2>
+              <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">instagram</h2>
             </a>
           </div>
         </div>
@@ -164,17 +199,17 @@ const ContactMe = () => {
 
         <div 
           ref={rightSectionRef}
-          className="w-full md:w-[20%] flex justify-center items-center"
+          className="hidden md:flex w-[20%] justify-center items-center"
         >
           <div className="medsos flex flex-col space-y-4 justify-center text-black dark:text-white text-center">
             <a href="https://github.com/oliveraja" target="_blank" rel="noopener noreferrer">
-              <h2 className="italic text-[16px] md:text-[20px] hover:text-[20px] md:hover:text-[25px] transition-all duration-300">github</h2>
+              <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">github</h2>
             </a>
             <a href="https://medium.com/@oliversebastian" target="_blank" rel="noopener noreferrer">
-              <h2 className="italic text-[16px] md:text-[20px] hover:text-[20px] md:hover:text-[25px] transition-all duration-300">medium</h2>
+              <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">medium</h2>
             </a>
             <a href="https://www.youtube.com/@oliversebastian" target="_blank" rel="noopener noreferrer">
-              <h2 className="italic text-[16px] md:text-[20px] hover:text-[20px] md:hover:text-[25px] transition-all duration-300">youtube</h2>
+              <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">youtube</h2>
             </a>
           </div>
         </div>
