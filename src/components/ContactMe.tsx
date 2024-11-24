@@ -14,7 +14,7 @@ const ContactMe = () => {
   const leftSectionRef = useRef<HTMLDivElement>(null);
   const middleSectionRef = useRef<HTMLDivElement>(null);
   const rightSectionRef = useRef<HTMLDivElement>(null);
-  const typewriterIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const typewriterIntervalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -158,10 +158,10 @@ const ContactMe = () => {
 
           <div className="hidden md:block absolute left-[60%] w-[2px] h-[250px] bg-black dark:bg-white"></div>
 
+          {/* untuk mobile */}
           <div className="md:hidden w-full mt-8 mb-[30px]">
-            <div className="w-full h-[2px] bg-black dark:bg-white my-6"></div>
+            <div className="w-48 h-[2px] bg-black dark:bg-white my-6 mx-auto"></div>
 
-            {/* untuk mobile */}
             <div className="flex flex-col space-y-4 items-center">
               <a href="/document/Oliver Sebastian Marpaung.pdf" target="_blank" rel="noopener noreferrer">
                 <h2 className="italic text-[18px] hover:text-[20px] transition-all duration-300 text-black dark:text-white">curriculum vitae</h2>
@@ -174,7 +174,7 @@ const ContactMe = () => {
               </a>
             </div>
 
-            <div className="w-full h-[2px] bg-black dark:bg-white my-6"></div>
+            <div className="w-48 h-[2px] bg-black dark:bg-white my-6 mx-auto"></div>
 
             <div className="flex flex-col space-y-4 items-center">
               <a href="https://github.com/oliveraja" target="_blank" rel="noopener noreferrer">
