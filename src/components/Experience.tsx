@@ -13,11 +13,6 @@ const Experience = () => {
         desc: "Contribute developing in-house applications.",
       },
       {
-        title: "Education Counselor",
-        date: "August 2022 - August 2024 • 2 years",
-        desc: "Introducing BINUS University to high school students.",
-      },
-      {
         title: "Freshmen Partner",
         date: "September 2023 - July 2024 • 8 months",
         desc: "Mentoring freshmen during the first year program.",
@@ -26,6 +21,11 @@ const Experience = () => {
         title: "Freshmen Leader",
         date: "July 2023 - August 2023 • 1 months",
         desc: "Helps freshmen to adapt the campus environment.",
+      },
+      {
+        title: "Education Counselor",
+        date: "August 2022 - August 2024 • 2 years",
+        desc: "Introducing BINUS University to high school students.",
       },
     ],
     []
