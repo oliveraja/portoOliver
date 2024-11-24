@@ -180,7 +180,7 @@ const RecentProject = () => {
         </div>
 
         {/* listProject 3 */}
-        <div ref={addToRefs} className="listProject mt-10 pb-20">
+        <div ref={addToRefs} className="listProject mt-10">
           <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">

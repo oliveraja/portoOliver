@@ -136,7 +136,7 @@ const ContactMe = () => {
     <>
       <section 
         id="ContactMe" 
-        className="ContactMe bg-custom-light dark:bg-[#171717] bg-cover bg-center bg-no-repeat flex flex-col items-center px-5 md:px-10 pt-20 pb-8 md:pb-0"
+        className="ContactMe bg-custom-light dark:bg-[#171717] bg-cover bg-center bg-no-repeat flex flex-col items-center px-5 md:px-10 pt-20 pb-8"
       >
         <div className="w-full flex flex-col md:flex-row items-center justify-center relative min-h-[400px]">
           <div 
@@ -234,11 +234,11 @@ const ContactMe = () => {
       {/* button scroll ke atas */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 w-12 h-12 bg-black dark:bg-white rounded-full flex items-center justify-center transition-opacity duration-300 hover:opacity-80 ${
+        className={`fixed bottom-8 right-8 w-12 h-12 bg-black dark:bg-white rounded-full flex items-center justify-center transition-opacity duration-300 hover:opacity-80 z-50 ${
           showScrollTop ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <i className="fa-solid fa-chevron-up"></i>
+        <i className="fa-solid fa-chevron-up fa-lg text-white dark:text-black"></i>
       </button>
     </>
   );
