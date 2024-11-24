@@ -219,11 +219,11 @@ const ContactMe = () => {
               <a href="https://github.com/oliveraja" target="_blank" rel="noopener noreferrer">
                 <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">github</h2>
               </a>
-              <a href="https://medium.com/@oliversebastian" target="_blank" rel="noopener noreferrer">
-                <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">medium</h2>
-              </a>
               <a href="https://www.instagram.com/oliversebastian__" target="_blank" rel="noopener noreferrer">
                 <h2 className="italic text-[18px] hover:text-[20px] transition-all duration-300 text-black dark:text-white">instagram</h2>
+              </a>
+              <a href="https://medium.com/@oliversebastian" target="_blank" rel="noopener noreferrer">
+                <h2 className="italic text-[20px] hover:text-[25px] transition-all duration-300">medium</h2>
               </a>
             </div>
           </div>
