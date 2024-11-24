@@ -16,7 +16,6 @@ const ContactMe = () => {
   const rightSectionRef = useRef<HTMLDivElement>(null);
   const typewriterIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Handle scroll to top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -24,7 +23,6 @@ const ContactMe = () => {
     });
   };
 
-  // Show/hide scroll to top button based on scroll position
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
@@ -234,7 +232,7 @@ const ContactMe = () => {
       {/* button scroll ke atas */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 w-12 h-12 bg-black dark:bg-white rounded-full flex items-center justify-center transition-opacity duration-300 hover:opacity-80 z-50 ${
+        className={`fixed bottom-8 right-8 w-12 h-12 bg-black dark:bg-white rounded-full flex items-center justify-center transition-opacity duration-300 hover:opacity-80 ${
           showScrollTop ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
