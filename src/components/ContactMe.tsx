@@ -14,7 +14,7 @@ const ContactMe = () => {
   const leftSectionRef = useRef<HTMLDivElement>(null);
   const middleSectionRef = useRef<HTMLDivElement>(null);
   const rightSectionRef = useRef<HTMLDivElement>(null);
-  const typewriterIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const typewriterIntervalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scrollToTop = () => {
     window.scrollTo({
