@@ -1,3 +1,4 @@
+// Home.tsx
 import { useRef } from 'react';
 import Navbar from '../components/Navbar';
 import AboutMe from '../components/AboutMe';
@@ -37,33 +38,33 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar scrollToSection={scrollToSection} />
 
-      <section ref={landingPageRef} id="LandingPage" className="landingPage">
-        <LandingPage />
-      </section>
-      
-      <section ref={aboutMeRef} id="AboutMe" className="aboutMe">
-        <AboutMe />
-      </section>
-      
-      <section ref={experienceRef} id="Experience" className="experience">
-        <Experience />
-      </section>
-      
-      <section ref={recentProjectRef} id="RecentProject" className="recentProject">
-        <RecentProject />
-      </section>
-      
-      <section ref={contactMeRef} id="ContactMe" className="contactMe">
-        <ContactMe />
-      </section>
+      <main className="flex-grow">
+        <section ref={landingPageRef} id="LandingPage" className="landingPage">
+          <LandingPage />
+        </section>
+        
+        <section ref={aboutMeRef} id="AboutMe" className="aboutMe">
+          <AboutMe />
+        </section>
+        
+        <section ref={experienceRef} id="Experience" className="experience">
+          <Experience />
+        </section>
+        
+        <section ref={recentProjectRef} id="RecentProject" className="recentProject">
+          <RecentProject />
+        </section>
+        
+        <section ref={contactMeRef} id="ContactMe" className="contactMe">
+          <ContactMe />
+        </section>
+      </main>
 
-      <div className="footer">
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 

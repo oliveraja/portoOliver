@@ -13,11 +13,6 @@ const Experience = () => {
         desc: "Contribute developing in-house applications.",
       },
       {
-        title: "Education Counselor",
-        date: "August 2022 - August 2024 • 2 years",
-        desc: "Introducing BINUS University to high school students.",
-      },
-      {
         title: "Freshmen Partner",
         date: "September 2023 - July 2024 • 8 months",
         desc: "Mentoring freshmen during the first year program.",
@@ -26,6 +21,11 @@ const Experience = () => {
         title: "Freshmen Leader",
         date: "July 2023 - August 2023 • 1 months",
         desc: "Helps freshmen to adapt the campus environment.",
+      },
+      {
+        title: "Education Counselor",
+        date: "August 2022 - August 2024 • 2 years",
+        desc: "Introducing BINUS University to high school students.",
       },
     ],
     []
@@ -123,7 +123,7 @@ const Experience = () => {
 );
 
   return (
-    <section id="Experience" className="Experience px-4 md:px-10 pt-10 bg-custom-light dark:bg-[#171717]">
+    <section id="Experience" className="Experience px-10 md:px-10 pt-20 bg-custom-light dark:bg-[#171717]">
       <div className="aboutMe items-start justify-start mx-auto pt-10">
         <div className="titleAboutMe flex">
           <h1 className="font-bold text-4xl md:text-[70px] dark:text-white">Experience</h1>

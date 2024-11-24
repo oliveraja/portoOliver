@@ -75,7 +75,7 @@ const RecentProject = () => {
   const [hoveredProject3, setHoveredProject3] = useState(false);
 
   return (
-    <section ref={sectionRef} id="RecentProject" className="RecentProject pt-10 bg-custom-light dark:bg-[#171717]">
+    <section ref={sectionRef} id="RecentProject" className="RecentProject pt-20 bg-custom-light dark:bg-[#171717]">
       <div className="recentProject items-start justify-start mx-auto pt-10">
         <div className="titleRecentProject flex flex-col items-center overflow-hidden">
           <div className="w-full border-t border-black dark:border-gray-300 mt-2" />
@@ -180,7 +180,7 @@ const RecentProject = () => {
         </div>
 
         {/* listProject 3 */}
-        <div ref={addToRefs} className="listProject mt-10 pb-20">
+        <div ref={addToRefs} className="listProject mt-10">
           <div className="project max-w-[1100px] h-[500px] flex flex-col lg:flex-row">
             <div className="flex flex-col justify-start p-4 text-left mt-5 w-full lg:w-1/3">
               <div className="flex space-x-2 mb-2">
