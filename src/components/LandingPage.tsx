@@ -70,7 +70,7 @@ const LandingPage = () => {
         <div ref={locationRef} className="mt-20 box flex items-center justify-between w-[300px] h-[100px] bg-[#262626] rounded-[50px] p-4 text-white">
           <div className="text-white text-lg font-medium text-left pl-5">
             <p>Located in</p>
-            <p>Depok,</p>
+            <p>Tangsel,</p>
             <p>Indonesia</p>
           </div>
           <div className="circle w-20 h-20 bg-white rounded-full">

@@ -129,7 +129,7 @@ const AboutMe = () => {
         <div className="descAboutMe flex justify-end">
           <div className="">
             <h3 className="w-[800px] text-[25px] text-justify leading-relaxed mr-10">
-              {`I am a seventh-semester student majoring in Computer Science at Binus University, currently interning as an IT Developer at CIMB Niaga. I have improved my leadership, teamwork, problem-solving, and time-management abilities through this position. I am deeply passionate about developing websites, particularly in the front-end domain. My academic journey has included multiple collaborative group projects, showcasing my ability to work effectively in a team for our final course assignments. I am a dedicated worker, known for my adaptability, strong work ethic, and enthusiasm for embracing new challenges.`
+              {`I am a Computer Science student at Binus University, class of 2025, with a strong interest in web development. I have 1,5 years of experience as a web developer intern in banking and telecommunications, focusing on building and improving internal company applications. I am especially interested in front-end development and keep improving my skills through real projects. I work well in teams, stay responsible under pressure, and always strive to improve my skills.`
                 .split(" ")
                 .map((word, index) => (
                   <span key={index} className="descText inline-block pr-1">
